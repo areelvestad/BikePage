@@ -23,8 +23,8 @@ body {
 .container-map {
     width: 100vw;
     max-width: 100%;
-    height: 50vh;
-    border-bottom: 2px dotted var(--color-dark);
+    height: 30vh;
+    border-bottom: 2px solid var(--color-dark);
 }
     #map {
         flex: 1;
@@ -34,28 +34,55 @@ body {
     
 .container-path {
     display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 50vh;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: 70vh;
     max-width: 100%;
+    transition: transform 0.5s ease;
 }
     .path {
         position: relative;
-        height: 50vh;
+        height: 70vh;
+        min-height: 70vh;
+        min-width: calc(100vw - 20px);
         background-color: whitesmoke;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease;
+        margin-left: 10px;
+        margin-right: 10px;
     }
+        button {
+            position: absolute;
+            bottom: 1vh;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+            #prevBtn {
+                left: 10px;
+            }
+            
+            #nextBtn {
+                right: 10px;
+            }
     .path img {
         width: 100%;
-        height: 25vh;
+        height: calc(25vh - 10px);
+        margin-top: 10px;
         object-fit: cover;
     }
     .path h2 {
         position: absolute;
         padding: .5em;
         margin: 0;
-        bottom: 50%;
+        bottom: 65%;
 
         font-size: 2em;
         color: white;
@@ -68,7 +95,7 @@ body {
     .path-desc-box {
         display: flex;
         height: 100%;
-        max-height: 24vh;
+        max-height: 44vh;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
@@ -79,6 +106,9 @@ body {
             display: flex;
             justify-content: center;
         }
+    #path-description {
+        margin-top: 0.5em;
+    }
     .path-info {
         display: flex;
         flex-direction: row;

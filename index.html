@@ -17,17 +17,25 @@
 
     <section class="container-map">
         <div class="map" id="map"></div>
+        <script src="GEOJSON/Gahperus.js"></script>
+        <script src="GEOJSON/Punta.js"></script> 
+        <script src="JS/list-path.js"></script>
         <script src="JS/map.js"></script>
+        <script src="JS/addToMap-paths.js"></script>
     </section>
 
-    <script src="Gahperus.js"></script> <!-- Contains the GeoJSON stored inside a JS variable -->
-    <script src="JS/container-path.js"></script> <!-- Contains the script to Dynamically Add Paths to HTML-->
-
+   
     <section class="container-path">   
     </section>
 
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+
+    <section class="container-footer">
     </section>
 
-    <section class="container-footer"></section>
+    <script src="JS/container-path.js"></script>
+    <script src="JS/container-path-carousel.js"></script>
+
 </body>
 </html>
