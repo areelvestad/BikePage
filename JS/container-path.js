@@ -40,7 +40,7 @@ function createPathHTML(properties) {
     descBoxDiv.appendChild(infoDiv);
 
     var exploreLink = document.createElement('a');
-    exploreLink.href = `PATHS/${properties.name}.html`; // Assuming HTML file names match the path names
+    exploreLink.href = `PATHS/${properties.name}.html`; 
 
     var exploreDiv = document.createElement('div');
     exploreDiv.className = 'path-explore';

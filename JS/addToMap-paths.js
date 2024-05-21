@@ -3,7 +3,7 @@ function addPathsToMap(paths) {
         L.geoJSON(pathCollection, {
             style: function(feature) {
                 return {
-                    color: '#f00', // Customize the line color as needed
+                    color: '#f00',
                     weight: 2,
                     opacity: 1
                 };

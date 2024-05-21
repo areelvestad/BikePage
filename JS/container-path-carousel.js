@@ -1,5 +1,3 @@
-// JS/carousel.js
-
 document.addEventListener('DOMContentLoaded', function () {
     const containerPath = document.querySelector('.container-path');
     const paths = document.querySelectorAll('.path');
@@ -25,6 +23,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Initial update to position the first element
     updateCarousel();
 });

@@ -6,7 +6,6 @@ var Gahperus = {
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
-                    // coordinates array
                     [21.302446217081478,69.50916869492714],
                     [21.303217626212767,69.50890248920614],
                     [21.30462993981463,69.50879172530033],
@@ -28,13 +27,11 @@ var Gahperus = {
             },
             "properties": {
                 "name": "Gahperus",
-                "description": "Beskrivelse for hvordan det er å sykle på Gahperus.",
+                "description": "Beskrivelse for hvordan det er å sykle på Gahperus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga animi iste non nam sunt architecto maiores dolor quas cumque repellendus temporibus deserunt, perferendis expedita, incidunt magnam soluta tempora sapiente velit blanditiis cum? Eligendi aut reprehenderit nam eos voluptatem dicta, autem perferendis, neque magni magnam nihil, blanditiis excepturi facilis quisquam soluta?",
                 "type": "Enduro/XC",
                 "climb": "540 moh",
                 "grade": "Intermidate"
-            },
-            "id": "Gahperus"
+            }
         }
-        // Add more features if needed
     ]
 };

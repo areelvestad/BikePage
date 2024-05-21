@@ -15,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background-color: #333;
 }
     h2 {
         font-family: 'Roboto Condensed';
@@ -22,9 +23,11 @@ body {
 
 .container-map {
     width: 100vw;
-    max-width: 100%;
+    max-width: calc(100% - 20px);
     height: 30vh;
     border-bottom: 2px solid var(--color-dark);
+    padding-left: 10px;
+    margin-right: 10px;
 }
     #map {
         flex: 1;
@@ -40,11 +43,12 @@ body {
     height: 70vh;
     max-width: 100%;
     transition: transform 0.5s ease;
+    background-color: #333;
 }
     .path {
         position: relative;
-        height: 70vh;
-        min-height: 70vh;
+        height: calc(70vh - 20px);
+        min-height: calc(70vh - 50px);
         min-width: calc(100vw - 20px);
         background-color: whitesmoke;
         margin: 0;
@@ -54,28 +58,36 @@ body {
         transition: transform 0.5s ease;
         margin-left: 10px;
         margin-right: 10px;
+        margin-top: 10px;
     }
         button {
             position: absolute;
-            bottom: 1vh;
+            bottom: 0.6vh;
             transform: translateY(-50%);
             z-index: 10;
-            background-color: rgba(255, 255, 255, 0.7);
             border: none;
             padding: 10px;
             cursor: pointer;
+            min-width: 50px;
+
+            font-family: 'Roboto Condensed';
+            font-size: 1em;
+            font-weight: 500;
+            color: rgb(112, 112, 112);
+            background-color: rgb(32, 32, 32);
         }
             #prevBtn {
-                left: 10px;
+                left: 0px;
+                border-radius: 0px 10px 10px 0px;
             }
             
             #nextBtn {
-                right: 10px;
+                right: 0px;
+                border-radius: 10px 0px 0px 10px;
             }
     .path img {
         width: 100%;
         height: calc(25vh - 10px);
-        margin-top: 10px;
         object-fit: cover;
     }
     .path h2 {
@@ -107,7 +119,9 @@ body {
             justify-content: center;
         }
     #path-description {
-        margin-top: 0.5em;
+        margin-top: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
     }
     .path-info {
         display: flex;
@@ -125,13 +139,11 @@ body {
     .path-explore {
         margin-bottom: 1em;
         padding: .3em;
-
-        background-color: rgb(77, 99, 77);
-        width: 50%;
-        border-radius: .5em;
-
         text-align: center;
         font-weight: bold;
         font-size: 1.2em;
         color: rgb(44, 54, 44);
+        background-color: rgb(77, 99, 77);
+        width: 50%;
+        border-radius: .5em;
     }
