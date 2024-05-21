@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sykkelstier i Nord-Troms</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
 </head>
-<body class="bg-dark">
-    <section class="container-map"></section>
-    <section class="container-path">
-        <div class="path">
-            <img src="IMG/GAHPERUS.jpg" alt="Gahperus">
-            <h2 class="path-title">Gahperus</h2>
-            <p class="path-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia reiciendis odio aliquid fugiat commodi? 
-                Hic, quibusdam sit. Deserunt, repellat cum a corrupti iusto excepturi aspernatur, nemo iste consectetur porro odit.
-            </p>
-        </div>
+<body>
+
+    <section class="container-map">
+        <div class="map" id="map"></div>
+        <script src="JS/map.js"></script>
     </section>
+
+    <script src="Gahperus.js"></script> <!-- Contains the GeoJSON stored inside a JS variable -->
+    <script src="JS/container-path.js"></script> <!-- Contains the script to Dynamically Add Paths to HTML-->
+
+    <section class="container-path">   
+    </section>
+
+    </section>
+
     <section class="container-footer"></section>
 </body>
 </html>

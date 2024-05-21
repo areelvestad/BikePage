@@ -4,6 +4,7 @@
     --color-shadow: black;
     --color-dark: #333;
 }
+
 html, body, section, h1, h2, h3, p, a, img { 
     padding: 0;
     margin: 0;
@@ -23,7 +24,14 @@ body {
     width: 100vw;
     max-width: 100%;
     height: 50vh;
+    border-bottom: 2px dotted var(--color-dark);
 }
+    #map {
+        flex: 1;
+        height: 100%;
+        max-height: 100vh;
+    }
+    
 .container-path {
     display: flex;
     flex-direction: column;
@@ -34,6 +42,9 @@ body {
     .path {
         position: relative;
         height: 50vh;
+        background-color: whitesmoke;
+        margin: 0;
+        padding: 0;
     }
     .path img {
         width: 100%;
@@ -50,6 +61,47 @@ body {
         color: white;
         filter: drop-shadow(3px 3px 5px black);
     }
-    .path p {
+    .path * {
         font-family: 'Roboto Condensed';
+    }
+
+    .path-desc-box {
+        display: flex;
+        height: 100%;
+        max-height: 24vh;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+        .path-desc-box a {
+            text-decoration: none;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    .path-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        background-color: #cccccc;
+        padding: .5em;
+    }
+        .path-info span {
+            display: flex;
+            flex-direction: row;
+            gap: .2em;
+        }
+    .path-explore {
+        margin-bottom: 1em;
+        padding: .3em;
+
+        background-color: rgb(77, 99, 77);
+        width: 50%;
+        border-radius: .5em;
+
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+        color: rgb(44, 54, 44);
     }
