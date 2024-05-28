@@ -1,0 +1,17 @@
+IDEAS: 
+* Animate cards on load
+* Hover over image to show more images of the route
+
+
+
+
+TO DO?
+* Add more cards to see how it works with manny
+* Filter cards based on region
+* EXPLORE button??? 
+
+MOBILE:
+* Make cards bigger on mobile
+    * Based on screen size? 
+    * Or make them smaller to fit more inline
+
