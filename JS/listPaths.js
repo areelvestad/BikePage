@@ -15,7 +15,7 @@ const listPaths = [
         endLocation:    '69.5408, 21.3293',
         parking:        '69.5394, 21.3321',
         midpoint:       '69.5081, 21.3005',
-        mapZoom:        '8',
+        mapZoom:        '12',
         mapZoomStart:   '12',
     },
     {
@@ -29,11 +29,11 @@ const listPaths = [
         length:         '15 km',
         climb:          '15 km',
         geojson:        'GEOJSON/Punta.geojson',
-        startLocation:  '69.4522, 21.45144',
+        startLocation:  '69.4522, 21.4514',
         endLocation:    '69.4978, 21.4321',
         parking:        '69.4975, 21.4341',
         midpoint:       '69.4975, 21.4341',
-        mapZoom:        '7',
+        mapZoom:        '11',
         mapZoomStart:   '12',
     },
 ];

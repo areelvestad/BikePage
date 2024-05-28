@@ -7,11 +7,13 @@
 
     <title>BikePage</title>
 
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/leaflet.fullscreen.css" />
+
+    <!--ROBOTO-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -23,33 +25,7 @@
 
 </head>
 <body>
-        <div id="container-paths" class="container-paths">
-            <!--
-                <div class="container-path ${listPath.name}${listPath.route}">
-                    <div class="path-title">
-                        ${listPath.route}
-                        <div class="path-lead">
-                            ${listPath.name}, ${listPath.municipality}
-                        </div>
-                    </div>
-                    <img src="IMG/${listPath.name}.jpg" alt="" class="path-image">
-                    <div  class="path-maps">
-                        <div id="map${listPath.route}"></div>
-                    </div>
-                    <div class="path-info">
-                        <div class="path-description">
-                            ${listPath.description}
-                        </div>
-                        <div class="path-grade">
-                            <div class="path-grade-length"><b>Length:</b> ${listPath.length}</div>
-                            <div class="path-grade-climb"><b>Climb:</b> ${listPath.climb}</div>
-                            <div class="path-grade-type"><b>Type:</b> ${listPath.type}</div>
-                            <div class="path-grade-grade ${listPath.grade}"><b>Grade:</b> ${listPath.grade}</div>
-                        </div>
-                    </div>
-                </div>
-            -->
-        </div>
+    <div id="container-paths" class="container-paths"></div>
 </body>
 </html>
 <script src="JS/listPaths.js"></script>
