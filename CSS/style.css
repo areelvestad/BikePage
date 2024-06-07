@@ -1,65 +1,63 @@
-/* html, body {
-    margin: 0;
-    padding: 0;
-    background: none;
-}
-
-body {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: .5em;
-    background-color: gray;
-
-    margin: 0 auto;
-}
-
-.container-paths {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    gap: .5em;
-    padding-top: .5em;
-}
-.container-path {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    background: white;
-
-    height: fit-content;
-    width: 300px; 
-}
-.path-image {
-    height: 250px;
-    width: 100%;
-} */
-
 * {
     font-family: 'roboto';
 }
 html {
-    background-color: rgb(36, 36, 36);
 }
 body {
     margin: 0 auto;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgb(36, 36, 36);
 }
 
+.container-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+    width: 100%;
+    height: 45px;
+    background-color: whitesmoke;
+}
+    .container-nav * {
+        text-decoration: none;
+        color: black;
+    }
+        .container-nav > .nav-logo {
+            font-weight: bold;
+            font-size: 1.56em;
+            font-style: italic;
+            text-transform: uppercase;
+            padding-left: 2em;
+            width: 1px;
+        }
+        .container-nav > .nav-links * {
+            padding-inline: 1em;
+        }
+        .container-nav > .nav-hamburger {
+            padding-right: 2em;
+            font-weight: bold;
+        }
+
+
 .container-paths {
-    margin: 2em ;
+    margin: 1em;
     display: flex;
     flex-wrap: wrap;
     gap: .5em;
-    
+    max-width: 960px;
 }
+    @media screen and (max-width: 985px) {
+        .container-paths {
+            max-width: 635px;
+        }
+    }
 
 .container-path {
     position: relative;
@@ -71,6 +69,7 @@ body {
     width: 300px;
     height: 600px;
     border: 1px solid rgba(0, 0, 0, 0.089);
+    margin-bottom: 0.8em;
 }
 
     .path-title {
@@ -141,6 +140,12 @@ body {
             text-align: center;
             font-size: 1em;
         }
+
+.container-footer {
+    background-color: rgb(20, 20, 20);
+    width: 100%;
+    height: 250px;
+}
 
 /* LEAFLET */
 .leaflet-control-fullscreen {

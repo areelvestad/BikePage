@@ -13,7 +13,7 @@ function createHtmlPaths(listPath) {
     <div class="container-path ${listPath.name}${listPath.route}">
         <div class="path-title">
             <h2>${listPath.route}</h2>
-            <h3>${listPath.name}, ${listPath.municipality}</h3>
+            <h3>${listPath.area}, ${listPath.municipality}</h3>
         </div>
         <div class="path-image" style="background-image: url('IMG/${listPath.name}.jpg');"></div>
         <div class="path-maps"><div id="map${listPath.route}"></div></div>
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const mapContainer = document.getElementById(`map${listPath.route}`);
         mapContainer.addEventListener('mouseenter', function() {
-            const startLocation = listPath.startLocation.split(',').map(Number);
+            const startLocation = listPath.zoomLocation.split(',').map(Number);
             map.setView(startLocation, listPath.mapZoomStart);
             setTimeout(function() {
                 map.invalidateSize();
