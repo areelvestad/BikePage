@@ -10,7 +10,7 @@ function createHtmlPaths(listPath) {
         }
     </style>
 
-    <div class="container-path ${listPath.name}${listPath.route}">
+    <div class="container-path ${listPath.name}${listPath.route} masonry-item">
         <div class="path-title">
             <h2>${listPath.route}</h2>
             <h3>${listPath.area}, ${listPath.municipality}</h3>
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             map.setView(startLocation, listPath.mapZoomStart);
             setTimeout(function() {
                 map.invalidateSize();
-            }, 200); // Adjust the timeout as needed
+            }, 200); 
         });
 
         mapContainer.addEventListener('mouseleave', function() {
@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 map.setView(midpoint, listPath.mapZoom);
                 setTimeout(function() {
                     map.invalidateSize();
-                }, 200); // Adjust the timeout as needed
-            }, 200); // Adjust the timeout as needed
+                }, 200); 
+            }, 200); 
         });
     });
 });
