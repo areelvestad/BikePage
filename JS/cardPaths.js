@@ -6,7 +6,6 @@ function createHtmlPaths(listPath) {
             width: 100%;
             height: 100%;
             max-height: 100vh;
-            border-radius: .5em;
         }
     </style>
 
@@ -31,12 +30,24 @@ function createHtmlPaths(listPath) {
     `;
 }
 
-const containerPaths = document.getElementById('container-paths');
-listPaths.forEach(listPath => {
-    containerPaths.innerHTML += createHtmlPaths(listPath);
-});
-
 document.addEventListener('DOMContentLoaded', function() {
+    const containerPaths = document.getElementById('container-paths');
+    listPaths.forEach(listPath => {
+        containerPaths.innerHTML += createHtmlPaths(listPath);
+    });
+
+    // Initialize Masonry with a delay to ensure all elements are loaded
+    imagesLoaded(containerPaths, function() {
+        setTimeout(function() {
+            masonryInstance = new Masonry(containerPaths, {
+                itemSelector: '.masonry-item',
+                columnWidth: 300,
+                gutter: 15,
+                fitWidth: true
+            });
+        }, 1000); // Delay in milliseconds (1000ms = 1 second)
+    });
+
     listPaths.forEach(listPath => {
         var map = L.map(`map${listPath.route}`, {
             center: [listPath.midpoint.split(',')[0], listPath.midpoint.split(',')[1]],
@@ -74,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             map.setView(startLocation, listPath.mapZoomStart);
             setTimeout(function() {
                 map.invalidateSize();
-            }, 200); 
+            }, 200); // Adjust the timeout as needed
         });
 
         mapContainer.addEventListener('mouseleave', function() {
@@ -83,8 +94,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 map.setView(midpoint, listPath.mapZoom);
                 setTimeout(function() {
                     map.invalidateSize();
-                }, 200); 
-            }, 200); 
+                }, 200); // Adjust the timeout as needed
+            }, 200); // Adjust the timeout as needed
         });
     });
 });
+
+// Function to update the Masonry layout
+function updateMasonryLayout() {
+    if (masonryInstance) {
+        masonryInstance.layout();
+    }
+}
+

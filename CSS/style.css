@@ -7,6 +7,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     background-color: rgb(255, 255, 255);
     width: 100%;
 }
@@ -188,11 +189,10 @@ body {
     height: 50px;
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
     z-index: 999; /* Ensure it is on top of other elements */
-    filter: drop-shadow(0 0 2px black);
+    border-radius: 15px;
+    overflow: hidden;
 }
-
-.path-maps:hover {
-    width: 290px;
-    height: 97%;
-    filter: drop-shadow(0 0 20px black);    
-}
+    .path-maps:hover {
+        width: 290px;
+        height: 97%;
+    }
