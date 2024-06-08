@@ -148,6 +148,7 @@ body {
 .path-description {
     color: black;
     margin-bottom: 1em;
+    height: fit-content;
     min-height: fit-content;
 }
 .path-grade {
