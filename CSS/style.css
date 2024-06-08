@@ -148,6 +148,7 @@ body {
 .path-description {
     color: black;
     margin-bottom: 1em;
+    min-height: fit-content;
 }
 .path-grade {
     display: flex;
