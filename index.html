@@ -9,37 +9,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/leaflet.fullscreen.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Leaflet.fullscreen.min.js"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<div class="main-wrapper">
-    <div class="container-nav">
-        <a class="nav-logo" href="/">BikePage</a>
-        <div class="nav-links">
-            <a href="">Routes</a>
-            <a href="">Share</a>
-            <a href="">About</a>
+    <div class="main-wrapper">
+        <div class="container-nav">
+            <a class="nav-logo" href="/">BikePage</a>
+            <div class="nav-links">
+                <a href="">Routes</a>
+                <a href="">Share</a>
+                <a href="">About</a>
+            </div>
+            <div class="nav-hamburger">||||</div>
         </div>
-        <div class="nav-hamburger">||||</div>
-    </div>
-    <div id="container-paths" class="container-paths">
-        <div class="paths-welcome masonry-item">
-            <h1>routes</h1>
-            <p>Here you can find stuff and things! And why does this break??</p>
+        <div id="container-paths" class="container-paths">
+            <div class="paths-welcome">
+                <h1>routes</h1>
+                <p>Here you can find stuff and things! And does it break?</p>
+            </div>
         </div>
+        <div class="container-footer">
+            <div class="footer-credits">Made by areelvestad@github</div>
+            <div class="footer-contact">Contact me here</div>
+            <div class="footer-logo nav-logo">footerLogo</div>
+        </div>
+        <script type="module" src="JS/cardPaths.js"></script>
     </div>
-    <div class="container-footer">
-        <div class="footer-credits">Made by areelvestad@github</div>
-        <div class="footer-contact">tel: 403 02 010</div>
-        <div class="footer-logo nav-logo">BikePage</div>
-    </div>
-    <script src="JS/listPaths.js"></script>
-    <script src="JS/cardPaths.js"></script>
-    <script src="JS/masonaryCards.js"></script>
-</div>
 </body>
 </html>
