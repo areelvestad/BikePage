@@ -1,6 +1,13 @@
 /* MAP */
 .trail-maps {
-    height: 50%;
+    height: 300px;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+@media screen and (max-width: 620px ) {
+    .trail-maps {
+        height: 250px;
+    }
 }
 
 /* Graph */

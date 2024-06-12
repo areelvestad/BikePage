@@ -154,12 +154,13 @@ body {
 .path-button {
     position: absolute;
     z-index: 998;
-    bottom: 65px;
+    bottom: 548px;
+    left: -8px;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 .path-button > a {
     text-decoration: none;
