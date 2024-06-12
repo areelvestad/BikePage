@@ -97,3 +97,24 @@
                 bottom: .5em;
                 left: .5em;
             }
+
+    @media screen and (max-width: 620px ) {
+        .trail-images > img {
+            height: 250px;
+        }
+        .desc-map-graph {
+            flex-direction: column;
+        }
+        .trail-description {
+            padding-right: .5em;
+            margin-bottom: 1.5em;
+            width: 100%;
+        }
+        .aside-info {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-content: start;
+            width: 100%;
+        }
+    }
