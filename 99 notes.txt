@@ -1,5 +1,5 @@
 IDEAS: 
-* Animate cards on load
+* Animate cards on load and/or load page animation
 * Hover over image to show more images of the route
 
 IMAGE SIZES: 
@@ -9,10 +9,12 @@ IMAGE SIZES:
 TO DO?
 * Add more cards to see how it works with manny
 * Filter cards based on region
-* EXPLORE button??? 
+* add more info in trail.html
+   - Parking availability: good, bad
+   - Water: 
+   - Several routes: yes/no
+   - Surface: rocky, trail, forrest road, road, path, gravel road
 
 MOBILE:
-* Make cards bigger on mobile
-    * Based on screen size? 
-    * Or make them smaller to fit more inline
+* NULL
 
