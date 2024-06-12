@@ -22,7 +22,7 @@ function createHtmlPaths(listPath) {
             <h3>${listPath.area}, ${listPath.municipality}</h3>
         </div>
         <div class="trail-images" id="trail-images-${listPath.name}">
-            <img src="IMG/${listPath.name}.jpg" alt="${listPath.name}">
+            <img src="/IMG/${listPath.name}.jpg" alt="${listPath.name}">
         </div>
 
         
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fullscreenControl: true
         });
 
-        L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4graatone&zoom={z}&x={x}&y={y}', {
+        L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&zoom={z}&x={x}&y={y}', {
             attribution: 'Kartverket'
         }).addTo(map);
 
