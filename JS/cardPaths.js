@@ -27,6 +27,7 @@ function createHtmlPaths(listPath) {
         </div>
         <div class="path-info">
             <div class="path-description">${listPath.description}</div>
+            <div class="path-button"><a href="/trail.html?municipality=${listPath.municipality}&route=${listPath.route}">Explore</a></div>
             <div class="path-grade">
                 <div class="path-grade-length"><b>Length:</b> ${listPath.length} km</div>
                 <div class="path-grade-climb"><b>Climb:</b> ${listPath.climb} m</div>

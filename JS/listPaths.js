@@ -24,7 +24,7 @@ const listPaths = [
         area:           'Reisadalen',
         name:           'Punta',
         route:          'Puntadalen',
-        description:    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ipsum aspernatur officia, sapiente ad corporis vero vitae ducimus aut earum doloribus ab tempore odit pariatur sit illum cum dolor,<br> repudiandae voluptas, possimus veritatis ipsam exercitationem. Maiores quam mollitia nesciunt obcaecati repellendus. Molestias itaque facere fuga recusandae sint, porro dolores et?',
+        description:    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ad corporis vero vitae ducimus aut earum doloribus ab tempore odit pariatur sit illum cum dolor,<br> repudiandae voluptas, possimus veritatis ipsam exercitationem. Maiores quam mollitia nesciunt obcaecati repellendus. Molestias itaque facere fuga recusandae sint, porro dolores et?',
         type:           'XC',
         grade:          'Beginner',
         length:         '15 km',
@@ -59,7 +59,6 @@ const listPaths = [
         mapZoom:        '10',
         mapZoomStart:   '12',
     },
-    
     {
         municipality:   'Nordreisa',
         area:           'Storslett',
@@ -82,4 +81,4 @@ const listPaths = [
     },
 ];
 
-export { listPaths }; // Export listPaths
+export { listPaths };

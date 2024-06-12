@@ -81,10 +81,10 @@ body {
         text-transform: capitalize;
         font-style: bold;
     }
-
+/* Trail cards */
 .container-path {
     position: relative;
-    margin: 0 auto;
+    margin: .2em auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -93,7 +93,6 @@ body {
     height: 600px;
     border: 1px solid rgba(0, 0, 0, 0.089);
 }
-
 .path-title {
     position: absolute;
     top: 190px;
@@ -116,13 +115,11 @@ body {
     font-weight: 500;
     color: rgba(245, 245, 245, 0.945);        
 }
-
 .path-image {
     position: relative;
     width: 100%;
     height: 250px;
     min-height: 250px;
-
     z-index: 500;
     background-size: cover;
     background-color: whitesmoke;
@@ -154,6 +151,31 @@ body {
     height: fit-content;
     min-height: fit-content;
 }
+.path-button {
+    position: absolute;
+    z-index: 998;
+    bottom: 65px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.path-button > a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .8em;
+    font-style: italic;
+    text-transform: uppercase;
+    color: black;
+    background-color: rgba(252, 252, 252, 0.733);;
+    padding: .5em;
+    transition: font-weight .2s ease-in-out;
+    border-radius: 3px;
+}
+    .path-button > a:hover {
+        font-weight: 600;
+    }
 .path-grade {
     display: flex;
     flex-direction: row;
@@ -237,8 +259,8 @@ body {
         height: 97%;
         filter: opacity(1);
         outline-style: solid;
-        outline-color: #00000070;
-        outline-width: 1px;
+        outline-color: #0000002f;
+        outline-width: 2px;
         border-radius: 0px;
     }
 
