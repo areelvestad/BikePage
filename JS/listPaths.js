@@ -41,7 +41,7 @@ const listPaths = [
         zoomLocation:   '69.4845, 21.4231',
         mapZoom:        '9',
         mapZoomStart:   '13',
-        mapZoomPage:    '12'
+        mapZoomPage:    '11'
     },
     {
         municipality:   'Nordreisa',
