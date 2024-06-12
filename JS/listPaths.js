@@ -5,6 +5,7 @@ const listPaths = [
         name:           'Gahperus',
         route:          'Gahperus',
         description:    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro quidem nihil illum officiis asperiores pariatur nobis nostrum! Error quo veniam temporibus tempore quis illum saepe reprehenderit illo ratione accusamus? Expedita!',
+        descriptionLong:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti vel delectus excepturi molestiae aspernatur optio dolor incidunt ipsa corporis labore nisi rerum non earum distinctio sint expedita ducimus voluptatibus repellat sequi, velit molestias sed nostrum?<br><br>Soluta quia vitae rem magni possimus incidunt ea neque animi, hic enim praesentium amet facere debitis voluptatem.<br><br>Mollitia recusandae modi accusantium sit nostrum facere minima libero placeat, eius sequi aliquid sapiente optio veniam rem laudantium blanditiis ipsum sint et commodi consectetur porro nisi, maiores quos! Adipisci quam quasi ipsum unde perferendis quaerat maxime atque, ab velit accusantium in excepturi sed aliquid, aspernatur quae soluta quisquam iste dignissimos.<br><br>Quaerat praesentium, ad maiores magni magnam ipsum commodi enim dolor animi impedit esse aspernatur soluta delectus obcaecati repellat sed aliquid numquam a corrupti, explicabo odio, eveniet repudiandae tenetur nesciunt. Odio voluptatibus blanditiis ullam doloremque molestias modi necessitatibus error voluptas, hic quisquam eveniet consectetur aliquam in impedit itaque nulla neque vero ipsam dolore quis. Culpa, voluptatibus vel.<br><br>Facilis numquam animi assumenda at hic similique magni maiores earum iusto ut modi illo amet ipsa facere nesciunt minima reiciendis mollitia molestiae perferendis deleniti ex, consequuntur, nobis cum! Rerum tempora aliquam obcaecati facere rem error similique voluptate quasi architecto. Enim, non nihil!',
         type:           'Enduro',
         grade:          'Advanced',
         length:         '',
@@ -18,6 +19,7 @@ const listPaths = [
         zoomLocation:   '69.5247, 21.3136',
         mapZoom:        '9',
         mapZoomStart:   '12',
+        mapZoomPage:    '12'
     },
     {
         municipality:   'Nordreisa',
@@ -25,6 +27,7 @@ const listPaths = [
         name:           'Punta',
         route:          'Puntadalen',
         description:    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ad corporis vero vitae ducimus aut earum doloribus ab tempore odit pariatur sit illum cum dolor,<br> repudiandae voluptas, possimus veritatis ipsam exercitationem. Maiores quam mollitia nesciunt obcaecati repellendus. Molestias itaque facere fuga recusandae sint, porro dolores et?',
+        descriptionLong:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti vel delectus excepturi molestiae aspernatur optio dolor incidunt ipsa corporis labore nisi rerum non earum distinctio sint expedita ducimus voluptatibus repellat sequi, velit molestias sed nostrum?<br><br>Soluta quia vitae rem magni possimus incidunt ea neque animi, hic enim praesentium amet facere debitis voluptatem.<br><br>Mollitia recusandae modi accusantium sit nostrum facere minima libero placeat, eius sequi aliquid sapiente optio veniam rem laudantium blanditiis ipsum sint et commodi consectetur porro nisi, maiores quos! Adipisci quam quasi ipsum unde perferendis quaerat maxime atque, ab velit accusantium in excepturi sed aliquid, aspernatur quae soluta quisquam iste dignissimos.<br><br>Quaerat praesentium, ad maiores magni magnam ipsum commodi enim dolor animi impedit esse aspernatur soluta delectus obcaecati repellat sed aliquid numquam a corrupti, explicabo odio, eveniet repudiandae tenetur nesciunt. Odio voluptatibus blanditiis ullam doloremque molestias modi necessitatibus error voluptas, hic quisquam eveniet consectetur aliquam in impedit itaque nulla neque vero ipsam dolore quis. Culpa, voluptatibus vel.<br><br>Facilis numquam animi assumenda at hic similique magni maiores earum iusto ut modi illo amet ipsa facere nesciunt minima reiciendis mollitia molestiae perferendis deleniti ex, consequuntur, nobis cum! Rerum tempora aliquam obcaecati facere rem error similique voluptate quasi architecto. Enim, non nihil!',
         type:           'XC',
         grade:          'Beginner',
         length:         '15 km',
@@ -38,6 +41,7 @@ const listPaths = [
         zoomLocation:   '69.4845, 21.4231',
         mapZoom:        '9',
         mapZoomStart:   '13',
+        mapZoomPage:    '12'
     },
     {
         municipality:   'Nordreisa',
@@ -45,6 +49,7 @@ const listPaths = [
         name:           'Reašvárri',
         route:          'Reašvárri',
         description:    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nostrum eligendi at numquam ratione neque, doloribus veritatis! Excepturi, similique natus.',
+        descriptionLong:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti vel delectus excepturi molestiae aspernatur optio dolor incidunt ipsa corporis labore nisi rerum non earum distinctio sint expedita ducimus voluptatibus repellat sequi, velit molestias sed nostrum?<br><br>Soluta quia vitae rem magni possimus incidunt ea neque animi, hic enim praesentium amet facere debitis voluptatem.<br><br>Mollitia recusandae modi accusantium sit nostrum facere minima libero placeat, eius sequi aliquid sapiente optio veniam rem laudantium blanditiis ipsum sint et commodi consectetur porro nisi, maiores quos! Adipisci quam quasi ipsum unde perferendis quaerat maxime atque, ab velit accusantium in excepturi sed aliquid, aspernatur quae soluta quisquam iste dignissimos.<br><br>Quaerat praesentium, ad maiores magni magnam ipsum commodi enim dolor animi impedit esse aspernatur soluta delectus obcaecati repellat sed aliquid numquam a corrupti, explicabo odio, eveniet repudiandae tenetur nesciunt. Odio voluptatibus blanditiis ullam doloremque molestias modi necessitatibus error voluptas, hic quisquam eveniet consectetur aliquam in impedit itaque nulla neque vero ipsam dolore quis. Culpa, voluptatibus vel.<br><br>Facilis numquam animi assumenda at hic similique magni maiores earum iusto ut modi illo amet ipsa facere nesciunt minima reiciendis mollitia molestiae perferendis deleniti ex, consequuntur, nobis cum! Rerum tempora aliquam obcaecati facere rem error similique voluptate quasi architecto. Enim, non nihil!',
         type:           'Enduro',
         grade:          'Expert',
         length:         '',
@@ -58,6 +63,7 @@ const listPaths = [
         zoomLocation:   '69.8439, 21.0995',
         mapZoom:        '10',
         mapZoomStart:   '12',
+        mapZoomPage:    '12'
     },
     {
         municipality:   'Nordreisa',
@@ -65,6 +71,7 @@ const listPaths = [
         name:           'Nordkjosfjellet',
         route:          'Nordkjosfjellet',
         description:    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias exercitationem ratione rerum blanditiis veritatis ipsum molestiae enim nihil reiciendis est? Voluptatibus ea repellat adipisci placeat sunt temporibus. Molestiae ratione unde quaerat maiores hic qui quos, repellendus optio accusantium ipsum ab, officiis voluptatem. Vero laboriosam dolorem.',
+        descriptionLong:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti vel delectus excepturi molestiae aspernatur optio dolor incidunt ipsa corporis labore nisi rerum non earum distinctio sint expedita ducimus voluptatibus repellat sequi, velit molestias sed nostrum?<br><br>Soluta quia vitae rem magni possimus incidunt ea neque animi, hic enim praesentium amet facere debitis voluptatem.<br><br>Mollitia recusandae modi accusantium sit nostrum facere minima libero placeat, eius sequi aliquid sapiente optio veniam rem laudantium blanditiis ipsum sint et commodi consectetur porro nisi, maiores quos! Adipisci quam quasi ipsum unde perferendis quaerat maxime atque, ab velit accusantium in excepturi sed aliquid, aspernatur quae soluta quisquam iste dignissimos.<br><br>Quaerat praesentium, ad maiores magni magnam ipsum commodi enim dolor animi impedit esse aspernatur soluta delectus obcaecati repellat sed aliquid numquam a corrupti, explicabo odio, eveniet repudiandae tenetur nesciunt. Odio voluptatibus blanditiis ullam doloremque molestias modi necessitatibus error voluptas, hic quisquam eveniet consectetur aliquam in impedit itaque nulla neque vero ipsam dolore quis. Culpa, voluptatibus vel.<br><br>Facilis numquam animi assumenda at hic similique magni maiores earum iusto ut modi illo amet ipsa facere nesciunt minima reiciendis mollitia molestiae perferendis deleniti ex, consequuntur, nobis cum! Rerum tempora aliquam obcaecati facere rem error similique voluptate quasi architecto. Enim, non nihil!',
         type:           'Enduro',
         grade:          'Advanced',
         length:         '',
@@ -78,6 +85,7 @@ const listPaths = [
         zoomLocation:   '69.8053, 21.0400',
         mapZoom:        '9',
         mapZoomStart:   '13',
+        mapZoomPage:    '12'
     },
 ];
 
