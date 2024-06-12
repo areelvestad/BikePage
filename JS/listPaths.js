@@ -77,7 +77,7 @@ const listPaths = [
         length:         '',
         climb:          '',
         climbHeight:    '',
-        geojson:        '/GEOJSON/Nordkjosfjellet.geojson',
+        geojson:        './GEOJSON/Nordkjosfjellet.geojson',
         startLocation:  '69.8173, 21.0306',
         endLocation:    '69.7931, 21.0519',
         parking:        '69.8411, 21.1446',

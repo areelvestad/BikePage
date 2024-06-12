@@ -11,7 +11,7 @@ function createHtmlPaths(listPath) {
             max-height: 100vh;
         }
         #climb-graph-canvas-${listPath.route} {
-            height: 50px; /* Adjust the height as needed */
+            height: 0;
         }
     </style>
 
@@ -20,7 +20,7 @@ function createHtmlPaths(listPath) {
             <h2>${listPath.route}</h2>
             <h3>${listPath.area}, ${listPath.municipality}</h3>
         </div>
-        <div class="path-image" style="background-image: url('IMG/${listPath.name}.jpg');"></div>
+        <div class="path-image" style="background-image: url('./IMG/${listPath.name}/${listPath.name}_300.jpg');"></div>
         <div class="path-maps"><div id="map${listPath.route}"></div></div>
         <div class="climb-graph">
             <canvas id="climb-graph-canvas-${listPath.route}"></canvas>

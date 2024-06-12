@@ -22,7 +22,7 @@ function createHtmlPaths(listPath) {
             <h3>${listPath.area}, ${listPath.municipality}</h3>
         </div>
         <div class="trail-images" id="trail-images-${listPath.name}">
-            <img src="/IMG/${listPath.name}.jpg" alt="${listPath.name}">
+            <img src="./IMG/${listPath.name}/${listPath.name}_930.jpg" alt="${listPath.name}">
         </div>
 
         
@@ -36,7 +36,7 @@ function createHtmlPaths(listPath) {
                         <div id="map${listPath.route}"></div>
                     </div>
                     <div class="trail-graph">
-                        <h3>Trail info title</h3>
+                        <h3>Trail info</h3>
                         <div class="trail-info-aside">
                             <div class="trail-grade-length"><b>Length:</b> ${listPath.length} km</div>
                             <div class="trail-grade-climb"><b>Climb:</b> ${listPath.climb} m</div>

@@ -2,7 +2,8 @@ IDEAS:
 * Animate cards on load
 * Hover over image to show more images of the route
 
-
+IMAGE SIZES: 
+* 930px, 620px, 350px
 
 
 TO DO?
