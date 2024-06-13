@@ -14,7 +14,7 @@ TO DO?
    - Water: 
    - Several routes: yes/no
    - Surface: rocky, trail, forrest road, road, path, gravel road
-   - Ut i Nord
+   - Ut i Nord-rute / hiking trail: yes/no
 
 MOBILE:
 * NULL
