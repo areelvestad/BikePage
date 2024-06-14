@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     width: 100%;
+    position: relative;
 }
 
 .main-wrapper {
@@ -17,7 +18,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .container-nav {
@@ -53,17 +53,14 @@ body {
         }
 
 .container-paths {
-    margin: 1em;
     display: flex;
     flex-wrap: wrap;
     width: 930px;
-    gap: .5em;
 }
 
 .paths-welcome {
-    height: fit-content;
     width: 100%;
-    background-color: none;
+    margin-block: .3em;
     display: flex;
     flex-direction: column;
     justify-content: end;

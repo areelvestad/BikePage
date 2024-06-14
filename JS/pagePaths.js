@@ -1,8 +1,17 @@
 import { preprocessGeoJSON, geojsonData } from './preprocess-geojson.js';
 import { createClimbGraph } from './climbGraph.js';
 
-function createHtmlPaths(listPath) {
+async function createHtmlPaths(listPath) {
+    const images = await fetchImagesAndDescriptions(listPath.name);
+    const imagesHtml = images.map((image, index) => `
+        <div class="trail-image ${index === 0 ? 'active' : ''}">
+            <img src="${image.src}" alt="${listPath.name}">
+            <div class="image-description"><p>${image.description}</p></div>
+        </div>
+    `).join('');
+
     return `
+    <link rel="stylesheet" href="./CSS/gallery.css">
     <style>
         #map${listPath.route} {
             flex: 1;
@@ -13,7 +22,7 @@ function createHtmlPaths(listPath) {
         #trail-climb-graph-canvas-${listPath.route} {
             height: 100%;
             width: 100%;
-        }
+        }  
     </style>
 
     <div class="container-trail">
@@ -21,14 +30,17 @@ function createHtmlPaths(listPath) {
             <h2>${listPath.route}</h2>
             <h3>${listPath.area}, ${listPath.municipality}</h3>
         </div>
-        <div class="trail-images" id="trail-images-${listPath.name}">
-            <img src="./IMG/${listPath.name}/${listPath.name}_930.jpg" alt="${listPath.name}">
+        <div class="trail-images">
+            <div class="slider-wrapper">
+                ${imagesHtml}
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="slider-indicator">
+                    ${images.map((_, index) => `<span class="dot ${index === 0 ? 'active' : ''}" data-index="${index}"></span>`).join('')}
+                </div>
+            </div>
         </div>
-
-        
-
         <div class="trail-info">
-
             <div class="desc-map-graph">
                 <div class="trail-description">${listPath.descriptionLong}</div>
                 <div class="aside-info">
@@ -50,12 +62,11 @@ function createHtmlPaths(listPath) {
                     </div>
                 </div>
             </div>
-
         </div>
-        
     </div>
     `;
 }
+
 
 function extractGraphData(geojson) {
     let distanceData = [];
@@ -87,6 +98,7 @@ function extractGraphData(geojson) {
     return { distanceData, elevationData };
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const municipality = urlParams.get('municipality');
@@ -97,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    preprocessGeoJSON().then(() => {
+    preprocessGeoJSON().then(async () => {
         const listPath = geojsonData.find(path => path.municipality === municipality && path.route === route);
 
         if (!listPath) {
@@ -111,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        containerPaths.innerHTML = createHtmlPaths(listPath);
+        containerPaths.innerHTML = await createHtmlPaths(listPath);
 
         const map = L.map(`map${listPath.route}`, {
             center: [listPath.midpoint.split(',')[0], listPath.midpoint.split(',')[1]],
@@ -145,15 +157,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => console.error(`Error loading GeoJSON for ${listPath.route}:`, error));
         }
+
+
+        const slides = document.querySelectorAll('.trail-image');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            if (index >= slides.length) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = slides.length - 1;
+            } else {
+                currentIndex = index;
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentIndex);
+                dots[i].classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            showSlide(currentIndex - 1);
+        });
+
+        document.querySelector('.next').addEventListener('click', () => {
+            showSlide(currentIndex + 1);
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.getAttribute('data-index')));
+            });
+        });
     });
 });
+
 
 function haversineDistance(lat1, lon1, lat2, lon2) {
     const R = 6371e3;
     const toRadians = degrees => degrees * Math.PI / 180;
 
     const dLat = toRadians(lat2 - lat1);
-    const dLon = toRadians(lon2 - lon1);
+    const dLon = toRadians(lat2 - lon1);
 
     const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
               Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
@@ -162,4 +209,37 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
     return R * c;
+}
+
+async function fetchImagesAndDescriptions(pathName) {
+    const images = [];
+
+    for (let i = 1; i <= 99; i++) {
+        const folderName = String(i).padStart(2, '0');
+        const imagePath = `./IMG/${pathName}/${folderName}/${pathName}_930.jpg`;
+        const descPath = `./IMG/${pathName}/${folderName}/desc.txt`;
+
+        try {
+            const response = await fetch(imagePath, { method: 'HEAD' });
+            if (response.ok) {
+                let description = '';
+                try {
+                    const descResponse = await fetch(descPath);
+                    if (descResponse.ok) {
+                        description = await descResponse.text();
+                    }
+                } catch (error) {
+                    console.error('Error fetching description:', error);
+                }
+                images.push({ src: imagePath, description: description.trim() });
+            } else {
+                break;
+            }
+        } catch (error) {
+            console.error('Error fetching image:', error);
+            break;
+        }
+    }
+
+    return images;
 }
