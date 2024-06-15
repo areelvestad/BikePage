@@ -11,7 +11,6 @@ async function createHtmlPaths(listPath) {
     `).join('');
 
     return `
-    <link rel="stylesheet" href="./CSS/gallery.css">
     <style>
         #map${listPath.route} {
             flex: 1;

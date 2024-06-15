@@ -33,24 +33,28 @@
         position: relative;
         height: fit-content;
         overflow: hidden;
-        border-radius: 3px;
     }
     .trail-image img {
         object-fit:cover;
         width: 100%;
-        height: 500px;
+        height: 600px;
+        border-radius: 5px;
+        overflow: hidden;
     }
     .image-description {
         position: absolute;
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
+        justify-content: space-between;
         margin: .3em;
         bottom: 4px;
         width: calc(100% - .6em);
         background: rgba(255, 255, 255, 0.808);
         border-top: 1px solid rgba(0, 0, 0, 0.199);
+        border-radius: 5px;
         backdrop-filter: blur(3px);
-        height: fit-content;
     }
         .image-description p {
             margin-inline: .5em;
@@ -75,24 +79,25 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
+            color: rgb(0, 0, 0);
             font-size: 1em;
-            font-weight: 700;
+            font-weight: 500;
             border: none;
             border-radius: 5px;
             padding: 10px;
             cursor: pointer;
             z-index: 1;
-            backdrop-filter: blur(2px);
+            background: rgba(255, 255, 255, 0.808);
+            padding-inline: .3em;
+            margin: 0;
         }
         
         .prev {
-            left: 5px;
+            left: .3em;
         }
         
         .next {
-            right: 5px;
+            right: .3em;
         }
         
         .slider-indicator {
@@ -106,15 +111,15 @@
             height: 15px;
             width: 15px;
             margin: 0 2px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.315);
             border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.603);
+            border: 1px solid rgba(0, 0, 0, 0.384);
             display: inline-block;
             cursor: pointer;
         }
         
         .dot.active {
-            background-color: rgba(0, 0, 0, 0.9);
+            background: rgba(255, 255, 255, 0.705);
         }
 
         /* TRAIL */

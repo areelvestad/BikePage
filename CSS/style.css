@@ -37,7 +37,7 @@ body {
     }
         .container-nav > .nav-logo {
             font-weight: bold;
-            font-size: 1.56em;
+            font-size: 1.60em;
             font-style: italic;
             text-transform: uppercase;
             padding-left: 2em;
@@ -66,6 +66,7 @@ body {
     justify-content: end;
     align-items: flex-end;
     color: rgb(58, 58, 58);
+    margin-inline: .3em;
 }
     .paths-welcome > * {
         margin: 0;
