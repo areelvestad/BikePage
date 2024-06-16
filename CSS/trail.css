@@ -80,16 +80,21 @@
             top: 50%;
             transform: translateY(-50%);
             color: rgb(0, 0, 0);
-            font-size: 1em;
+            font-size: 1.3em;
             font-weight: 500;
             border: none;
             border-radius: 5px;
-            padding: 10px;
+            padding: 40px;
             cursor: pointer;
             z-index: 1;
             background: rgba(255, 255, 255, 0.808);
             padding-inline: .3em;
             margin: 0;
+            opacity: .5;
+            transition: opacity .2s ease-in-out;
+        }
+        .prev:hover, .next:hover {
+            opacity: 1;
         }
         
         .prev {
