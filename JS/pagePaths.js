@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     L.geoJSON(geojson, {
                         style: function(feature) {
                             return {
-                                color: 'red',
+                                color: 'blue',
                                 weight: 3,
                                 opacity: 0.7,
                                 dashArray: '1, 4'

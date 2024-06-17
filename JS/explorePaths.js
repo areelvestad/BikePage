@@ -13,7 +13,7 @@ var exploreMap = L.map('explore-map').setView([69.6500, 21.2900], 9);
             const geojsonLayer = L.geoJSON(geojson, {
                 style: function(feature) {
                     return {
-                        color: 'red',
+                        color: 'blue',
                         weight: 3,
                         opacity: 0.7,
                         dashArray: '1, 4'
