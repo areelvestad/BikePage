@@ -1,0 +1,57 @@
+@media screen and (max-width: 940px ) {
+    .container-paths {
+        width: 620px;
+        gap: .1em;
+    }  
+    .paths-welcome {
+        max-width: 620px;
+    }
+    .container-filter {
+        max-width: 620px;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 620px ) {
+    .container-paths {
+        width: 350px;
+    }
+    .paths-welcome {
+        align-items: center;
+        margin-bottom: .5em;
+        max-width: 350px;
+    }
+    .paths-welcome > p {
+        width: 300px;
+    }
+    .container-nav * {
+     margin: 0;
+     padding: 0;
+    }
+    .container-nav > .nav-links {
+        display: none;
+    }
+    .container-filter {
+        max-width: 300px;
+        height: 100%;
+        flex-wrap: wrap;
+    }
+        .container-filter > form {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            padding-top: .3em;
+            gap: 0;
+        }
+        .container-filter > form > select {
+            padding-bottom: .3em;
+        }
+        .container-filter > form > button {
+            border: none;
+            width: 100%;
+            background-color: rgb(230, 230, 230);
+        }
+}

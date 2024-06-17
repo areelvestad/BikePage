@@ -25,6 +25,8 @@
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
 }
+
+
 .container-textbox {
     height: 100%;
     min-height: 300px;
