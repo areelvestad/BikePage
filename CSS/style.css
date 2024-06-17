@@ -64,20 +64,25 @@ body {
         justify-content: end;
         gap: 1em;
         background-color: rgb(243, 243, 243);
+        
     }
     .container-filter > form > select {
         border: none;
         background: none;
+        cursor: pointer;
+        color: black;
     }
     .container-filter > form > button {
         border: none;
         padding-inline: .5em;
         padding-block: .3em;
         font-size: .9em;
+        font-weight: 600;
         background: none;
         border-left: 2px solid rgb(177, 177, 177);
+        color: black;
+        cursor: pointer;
     }
-
 .container-paths {
     display: flex;
     flex-wrap: wrap;
@@ -233,7 +238,11 @@ body {
     }  
     .paths-welcome {
         max-width: 620px;
-    }  
+    }
+    .container-filter {
+        max-width: 620px;
+        height: 100%;
+    }
 }
 
 @media screen and (max-width: 620px ) {
@@ -255,6 +264,29 @@ body {
     .container-nav > .nav-links {
         display: none;
     }
+    .container-filter {
+        max-width: 300px;
+        height: 100%;
+        flex-wrap: wrap;
+    }
+        .container-filter > form {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            padding-top: .3em;
+            gap: 0;
+        }
+        .container-filter > form > select {
+            padding-bottom: .3em;
+        }
+        .container-filter > form > button {
+            border: none;
+            width: 100%;
+            background-color: rgb(230, 230, 230);
+        }
 }
 
 /* LEAFLET */

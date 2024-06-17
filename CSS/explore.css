@@ -2,9 +2,68 @@
     width: 100%;
 }
 #explore-map {
-    height: calc(100svh - 45px);
+    height: calc(100svh - 45px - 300px);
     background-color: gray;
+}
+.main-wrapper {
+    position: relative;
+}
+.container-filter {
+    min-width: 100%;
+    background: none;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: end;
+    top: 45px;
+    z-index: 999;
+}
+.container-filter > #filter-form {
+    background: rgba(255, 255, 255, 0.692);
+    width: fit-content;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+.container-textbox {
+    height: 100%;
+    min-height: 300px;
+    width: 100%;
+    display: flex;
+}
+.path-textbox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: .5em;
+    padding: .3em;
+}
+    .path-textbox > .textbox {
+        width: 100%;
+    }
+    .path-textbox > img {
+        width: 300px;
+        height: calc(300px - .6em);
+        object-fit: cover;
+    }
+    @media screen and (max-width: 620px ) {
+        .path-textbox > img {
+            width: 150px;
+        }
+    }
+.path-notextbox {
+    display: flex;
+    flex-direction: column;
+    margin-inline: .3em;
 }
 .container-footer {
     margin-top: 0;
+}
+
+.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
 }
