@@ -1,0 +1,10 @@
+.container-map {
+    width: 100%;
+}
+#explore-map {
+    height: calc(100svh - 45px);
+    background-color: gray;
+}
+.container-footer {
+    margin-top: 0;
+}
