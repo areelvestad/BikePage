@@ -24,13 +24,7 @@
     .paths-welcome > p {
         width: 300px;
     }
-    .container-nav * {
-     margin: 0;
-     padding: 0;
-    }
-    .container-nav > .nav-links {
-        display: none;
-    }
+
     .container-filter {
         max-width: 300px;
         height: 100%;
@@ -47,7 +41,7 @@
             gap: 0;
         }
         .container-filter > form > select {
-            padding-bottom: .3em;
+            padding-bottom: .5em;
         }
         .container-filter > form > button {
             border: none;

@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- /ICONS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -31,7 +34,7 @@
                     <option value="Expert">Expert</option>
                     <!-- Add other grades as needed -->
                 </select>
-                <button type="submit">Search</button>
+                <button type="submit"><span class="material-symbols-outlined">travel_explore</span></button>
             </form>
         </div>
         <div id="container-map" class="container-map">
@@ -40,7 +43,7 @@
         <div class="container-textbox" id="container-textbox">
             <div class="path-textbox hidden" id="path-textbox"></div>
             <div class="path-notextbox show" id="path-notextbox">
-                <h2>Click on a path!</h2>
+                <h2>Click on a pin!</h2>
                 <p>This box wil display info about the path you clicked on.</p>
             </div>
         </div>

@@ -2,7 +2,7 @@
     width: 100%;
 }
 #explore-map {
-    height: calc(100svh - 45px - 300px);
+    height: calc(100svh - 45px);
     background-color: gray;
 }
 .main-wrapper {
@@ -28,12 +28,17 @@
 
 
 .container-textbox {
-    height: 100%;
-    min-height: 300px;
+    height: 300px;
     width: 100%;
     display: flex;
+    position: absolute;
+    bottom: 250px;
+    z-index: 998;
+    background-color: rgba(255, 255, 255, 0.815);
+    backdrop-filter: blur(3px);
 }
 .path-textbox {
+    position: relative;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -42,11 +47,25 @@
 }
     .path-textbox > .textbox {
         width: 100%;
+        overflow-y: scroll;
     }
     .path-textbox > img {
         width: 300px;
         height: calc(300px - .6em);
         object-fit: cover;
+    }
+    .path-textbox > a {
+        position: absolute;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: .8em;
+        font-style: italic;
+        text-transform: uppercase;
+        color: black;
+        background-color: rgba(252, 252, 252, 0.733);;
+        padding: .5em;
+        border-radius: 3px;
+        margin: .3em;
     }
     @media screen and (max-width: 620px ) {
         .path-textbox > img {
@@ -56,8 +75,14 @@
 .path-notextbox {
     display: flex;
     flex-direction: column;
-    margin-inline: .3em;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    width: 100%;
 }
+    .path-notextbox > * {
+        margin: .15em auto;
+    }
 .container-footer {
     margin-top: 0;
 }

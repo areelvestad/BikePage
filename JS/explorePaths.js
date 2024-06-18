@@ -1,6 +1,6 @@
 import { listPaths } from './listPaths.js';
 
-var exploreMap = L.map('explore-map').setView([69.6500, 21.2900], 9);
+var exploreMap = L.map('explore-map').setView([69.6500, 21.2900], 8);
 L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&zoom={z}&x={x}&y={y}', {
     attribution: 'Kartverket'
 }).addTo(exploreMap);
@@ -60,10 +60,10 @@ function displayPathInfo(path) {
     pathTextbox.innerHTML = `
         <img src='./IMG/${path.name}/01/${path.name}_300.jpg'>
         <div class="textbox">
-            <h2>${path.name}</h2>
+            <h2>${path.name}, ${path.area}</h2>
             <p>${path.description}</p>
-            <a href="./trail.html?municipality=${path.municipality}&route=${path.route}">Explore</a>
         </div>
+        <a href="./trail.html?municipality=${path.municipality}&route=${path.route}">Explore</a>
     `;
 }
 

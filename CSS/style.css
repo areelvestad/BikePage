@@ -2,6 +2,10 @@
     font-family: 'roboto';
 }
 
+html {
+    background-color: rgb(20, 20, 20);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -46,11 +50,6 @@ body {
         .container-nav > .nav-links * {
             padding-inline: 1em;
         }
-        
-        .container-nav > .nav-hamburger {
-            padding-right: 2em;
-            font-weight: bold;
-        }
 .container-filter {
     width: 100%;
     max-width: 930px;
@@ -76,12 +75,13 @@ body {
         border: none;
         padding-inline: .5em;
         padding-block: .3em;
-        font-size: .9em;
-        font-weight: 600;
-        background: none;
-        border-left: 2px solid rgb(177, 177, 177);
+        background: rgb(222, 231, 222);
+        border-left: 2px solid rgb(205, 223, 200);
         color: black;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 .container-paths {
     display: flex;
@@ -253,12 +253,12 @@ body {
     .paths-welcome > p {
         width: 300px;
     }
-    .container-nav * {
-     margin: 0;
-     padding: 0;
+    .container-nav > .nav-logo {
+        font-size: 1em;
     }
     .container-nav > .nav-links {
-        display: none;
+        display: flex;
+        font-size: .8em;
     }
 }
 
@@ -298,7 +298,6 @@ body {
 
 /* CLIMB GRAPH */
 
-/* Add this at the bottom of your CSS file */
 .climb-graph {
     position: absolute;
     bottom: 0;
@@ -309,4 +308,13 @@ body {
 .climb-graph canvas {
     width: 100% !important;
     height: 100% !important;
+}
+
+/* ICONS */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20
 }
