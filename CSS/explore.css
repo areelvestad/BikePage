@@ -49,9 +49,11 @@
         overflow-y: scroll;
     }
     .path-textbox > img {
-        width: 300px;
+        width: 100%;
+        max-width: 300px;
         height: calc(300px - .6em);
         object-fit: cover;
+        overflow: hidden;
     }
     .path-textbox > a {
         position: absolute;
@@ -68,7 +70,7 @@
     }
     @media screen and (max-width: 620px ) {
         .path-textbox > img {
-            width: 150px;
+            max-width: 150px;
         }
     }
 .path-notextbox {

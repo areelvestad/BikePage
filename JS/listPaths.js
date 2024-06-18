@@ -183,6 +183,29 @@ const listPaths = [
         mapZoomStart:   '10',
         mapZoomPage:    '10'
     },
+    {
+        municipality:   'Nordreisa',
+        area:           'Storslett',
+        name:           'Andrevarden',
+        route:          'Báiskitvarden',
+        description:    'Alias exercitationem ratione rerum blanditiis veritatis ipsum molestiae enim nihil reiciendis est? Voluptatibus ea repellat adipisci placeat sunt temporibus. Molestiae ratione unde quaerat maiores hic qui quos, repellendus optio accusantium ipsum ab, officiis voluptatem. Vero laboriosam dolorem.',
+        descriptionLong:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti vel delectus excepturi molestiae aspernatur optio dolor incidunt ipsa corporis labore nisi rerum non earum distinctio sint expedita ducimus voluptatibus repellat sequi, velit molestias sed nostrum?<br><br>Soluta quia vitae rem magni possimus incidunt ea neque animi, hic enim praesentium amet facere debitis voluptatem.<br><br>Mollitia recusandae modi accusantium sit nostrum facere minima libero placeat, eius sequi aliquid sapiente optio veniam rem laudantium blanditiis ipsum sint et commodi consectetur porro nisi, maiores quos! Adipisci quam quasi ipsum unde perferendis quaerat maxime atque, ab velit accusantium in excepturi sed aliquid, aspernatur quae soluta quisquam iste dignissimos.<br><br>Quaerat praesentium, ad maiores magni magnam ipsum commodi enim dolor animi impedit esse aspernatur soluta delectus obcaecati repellat sed aliquid numquam a corrupti, explicabo odio, eveniet repudiandae tenetur nesciunt. Odio voluptatibus blanditiis ullam doloremque molestias modi necessitatibus error voluptas, hic quisquam eveniet consectetur aliquam in impedit itaque nulla neque vero ipsam dolore quis. Culpa, voluptatibus vel.<br><br>Facilis numquam animi assumenda at hic similique magni maiores earum iusto ut modi illo amet ipsa facere nesciunt minima reiciendis mollitia molestiae perferendis deleniti ex, consequuntur, nobis cum! Rerum tempora aliquam obcaecati facere rem error similique voluptate quasi architecto. Enim, non nihil!',
+        type:           'Enduro',
+        grade:          'Advanced',
+        Water:          'Yes',
+        severalRoutes:  'Yes',
+        surface:        'Dirt trail & stone',
+        hikingTrail:    'Yes',
+        geojson:        './GEOJSON/Andrevarden.geojson',
+        startLocation:  '69.7800, 21.0987',
+        endLocation:    '69.7800, 21.0987',
+        parking:        '69.7800, 21.0987',
+        midpoint:       '69.7734, 21.0792',
+        zoomLocation:   '69.7734, 21.0792',
+        mapZoom:        '10',
+        mapZoomStart:   '13',
+        mapZoomPage:    '10'
+    },
 ];
 
 export { listPaths };
