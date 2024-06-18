@@ -15,6 +15,7 @@ TO DO?
    - Several routes: yes/no
    - Surface: rocky, trail, forrest road, road, path, gravel road
    - Ut i Nord-rute / hiking trail: yes/no
+   - Explore: Click on path, zoom to path
 
 MOBILE:
 * NULL
