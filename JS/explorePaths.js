@@ -8,55 +8,102 @@ L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=to
 const pathTextbox = document.getElementById('path-textbox');
 const pathNoTextbox = document.getElementById('path-notextbox');
 
+const customMarkerIcon = L.divIcon({
+    html: `
+    <span class="material-symbols-outlined">directions_bike</span>
+    `,
+    className: 'custom-marker', 
+    iconSize: [24, 24],
+    iconAnchor: [12, 12]
+});
+
 function loadGeoJson(paths) {
+    let allLatlngs = [];
+
     paths.forEach(path => {
         fetch(path.geojson)
             .then(response => response.json())
             .then(geojson => {
+                const defaultStyle = {
+                    color: 'blue',
+                    weight: 3,
+                    opacity: 0.7,
+                    dashArray: '1, 4'
+                };
+
+                const hoverStyle = {
+                    color: 'darkred',
+                    weight: 3,
+                    opacity: 1,
+                    dashArray: '1, 4'
+                };
+
                 const geojsonLayer = L.geoJSON(geojson, {
-                    style: function(feature) {
-                        return {
-                            color: 'blue',
-                            weight: 3,
-                            opacity: 0.7,
-                            dashArray: '1, 4'
-                        };
-                    },
+                    style: defaultStyle,
                     onEachFeature: function(feature, layer) {
                         layer.on('click', function() {
                             displayPathInfo(path);
                         });
+                        layer.on('mouseover', function() {
+                            layer.setStyle(hoverStyle);
+                        });
+                        layer.on('mouseout', function() {
+                            layer.setStyle(defaultStyle);
+                        });
                     }
                 }).addTo(exploreMap);
 
-                // Add a pin at the first coordinate of the path
+                // Collect all latlngs from the geojson to calculate bounds
+                geojsonLayer.eachLayer(layer => {
+                    if (layer.getLatLngs) {
+                        layer.getLatLngs().forEach(latlng => {
+                            if (Array.isArray(latlng)) {
+                                latlng.forEach(coord => allLatlngs.push(coord));
+                            } else {
+                                allLatlngs.push(latlng);
+                            }
+                        });
+                    }
+                });
+
+                // Add a custom SVG marker at the first coordinate of the path
                 const firstCoord = geojson.features[0].geometry.coordinates[0];
-                // Handle nested coordinates if it's a LineString or MultiLineString
                 let coords = firstCoord;
                 if (Array.isArray(coords[0])) {
-                    coords = coords[0];  // Get the first set of coordinates
+                    coords = coords[0]; // Get the first set of coordinates
                 }
                 const [lng, lat] = coords;
                 const latlng = new L.LatLng(lat, lng);
-                const marker = L.marker(latlng).addTo(exploreMap);
+                const marker = L.marker(latlng, { icon: customMarkerIcon }).addTo(exploreMap);
 
-                // Add a click event to open the popup on the marker and show the info in the path-textbox
                 marker.on('click', function() {
                     displayPathInfo(path);
                 });
+
+                marker.on('mouseover', function() {
+                    geojsonLayer.setStyle(hoverStyle);
+                });
+
+                marker.on('mouseout', function() {
+                    geojsonLayer.setStyle(defaultStyle);
+                });
+
+                // Update the map view to fit bounds with padding
+                if (allLatlngs.length > 0) {
+                    const bounds = L.latLngBounds(allLatlngs);
+                    exploreMap.fitBounds(bounds, { padding: [50, 50] }); // Adjust padding as needed
+                }
             })
-            .catch(error => console.error(`Error loading GeoJSON for ${path.route}:`, error)); 
+            .catch(error => console.error(`Error loading GeoJSON for ${path.route}:`, error));
     });
 }
 
 function displayPathInfo(path) {
-    // Hide the no-textbox and show the path-textbox
     pathNoTextbox.classList.add('hidden');
     pathNoTextbox.classList.remove('show');
     pathTextbox.classList.add('show');
     pathTextbox.classList.remove('hidden');
 
-    // Insert the path info into the path-textbox
     pathTextbox.innerHTML = `
         <img src='./IMG/${path.name}/01/${path.name}_300.jpg'>
         <div class="textbox">
@@ -67,7 +114,6 @@ function displayPathInfo(path) {
     `;
 }
 
-// Filter function
 function filterPaths() {
     const urlParams = new URLSearchParams(window.location.search);
     const type = urlParams.get('type');
@@ -82,21 +128,17 @@ function filterPaths() {
         filteredPaths = filteredPaths.filter(path => path.grade.toLowerCase().includes(grade.toLowerCase()));
     }
 
-    // Clear existing layers
     exploreMap.eachLayer(layer => {
         if (layer instanceof L.GeoJSON || layer instanceof L.Marker) {
             exploreMap.removeLayer(layer);
         }
     });
 
-    // Load filtered paths
     loadGeoJson(filteredPaths);
 }
 
-// Apply filters from URL on page load
 filterPaths();
 
-// Listen for form submission and update filters
 document.getElementById('filter-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(this);

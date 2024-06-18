@@ -314,7 +314,12 @@ body {
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
-  'wght' 400,
+  'wght' 300,
   'GRAD' 0,
   'opsz' 20
 }
+a > .material-symbols-outlined{
+    position: absolute;
+    left: -35px;
+    top: -3px;
+  }
