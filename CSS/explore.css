@@ -78,9 +78,12 @@
     align-items: center;
     padding: 1em;
     width: 100%;
+    
 }
     .path-notextbox > * {
-        margin: .15em auto;
+        margin-block: .15em;
+        margin-inline: 2.5em;
+        text-align: center;
     }
 .container-footer {
     margin-top: 0;
