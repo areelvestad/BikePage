@@ -2,7 +2,8 @@
     width: 100%;
 }
 #explore-map {
-    height: calc(100svh - 45px - 300px);
+    height: calc(100svh - 45px);
+    max-height: calc(75svh - 45px);
     background-color: gray;
 }
 .main-wrapper {
@@ -27,6 +28,7 @@
 }
 .container-textbox {
     height: 300px;
+    max-height: 25vh;
     width: 100%;
     display: flex;
 /*     position: absolute;
@@ -51,7 +53,7 @@
     .path-textbox > img {
         width: 100%;
         max-width: 300px;
-        height: calc(300px - .6em);
+        height: calc(100%);
         object-fit: cover;
         overflow: hidden;
     }

@@ -43,84 +43,86 @@ function createHtmlPaths(listPath) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const containerPaths = document.getElementById('container-paths');
-
     preprocessGeoJSON().then(() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const municipality = urlParams.get('municipality');
-        const type = urlParams.get('type');
-        const grade = urlParams.get('grade');
-
-        const filteredPaths = geojsonData.filter(path => {
-            return (!municipality || path.municipality === municipality) &&
-                   (!type || path.type === type) &&
-                   (!grade || path.grade === grade);
-        });
-
-        containerPaths.innerHTML = ''; // Clear the container before adding filtered paths
-
-        filteredPaths.forEach(listPath => {
-            containerPaths.innerHTML += createHtmlPaths(listPath);
-        });
-
-        filteredPaths.forEach(listPath => {
-            const map = L.map(`map${listPath.route}`, {
-                center: [listPath.midpoint.split(',')[0], listPath.midpoint.split(',')[1]],
-                zoom: listPath.mapZoom,
-                zoomControl: false,
-                attributionControl: false,
-                fullscreenControl: true
-            });
-
-            L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4graatone&zoom={z}&x={x}&y={y}', {
-                attribution: 'Kartverket'
-            }).addTo(map);
-
-            if (listPath.geojson) {
-                fetch(listPath.geojson)
-                    .then(response => response.json())
-                    .then(geojson => {
-                        const geojsonLayer = L.geoJSON(geojson, {
-                            style: function(feature) {
-                                return {
-                                    color: 'blue',
-                                    weight: 3,
-                                    opacity: 0.7,
-                                    dashArray: '1, 4'
-                                };
-                            }
-                        }).addTo(map);
-
-                        const { distanceData, elevationData } = extractGraphData(geojson);
-                        createClimbGraph(`climb-graph-canvas-${listPath.route}`, distanceData, elevationData);
-
-                        // Hover logic
-                        const mapContainer = document.getElementById(`map${listPath.route}`);
-                        mapContainer.addEventListener('mouseenter', function() {
-                            const startLocation = listPath.zoomLocation.split(',').map(Number);
-                            map.setView(startLocation, listPath.mapZoomStart);
-                            setTimeout(function() {
-                                map.invalidateSize();
-                                geojsonLayer.setStyle({ opacity: 1 });
-                            }, 200); // Adjust the timeout as needed
-                        });
-
-                        mapContainer.addEventListener('mouseleave', function() {
-                            setTimeout(function() {
-                                const midpoint = listPath.midpoint.split(',').map(Number);
-                                map.setView(midpoint, listPath.mapZoom);
-                                setTimeout(function() {
-                                    map.invalidateSize();
-                                    geojsonLayer.setStyle({ opacity: 0.7 });
-                                }, 200); // Adjust the timeout as needed
-                            }, 200); // Adjust the timeout as needed
-                        });
-                    })
-                    .catch(error => console.error(`Error loading GeoJSON for ${listPath.route}:`, error));
-            }
-        });
+        filterPaths();
     });
 });
+
+function filterPaths() {
+    const containerPaths = document.getElementById('container-paths');
+    const urlParams = new URLSearchParams(window.location.search);
+    const municipality = urlParams.get('municipality');
+    const type = urlParams.get('type');
+    const grade = urlParams.get('grade');
+
+    const filteredPaths = geojsonData.filter(path => {
+        return (!municipality || path.municipality === municipality) &&
+               (!type || path.type === type) &&
+               (!grade || path.grade === grade);
+    });
+
+    containerPaths.innerHTML = ''; // Clear the container before adding filtered paths
+
+    filteredPaths.forEach(listPath => {
+        containerPaths.innerHTML += createHtmlPaths(listPath);
+    });
+
+    filteredPaths.forEach(listPath => {
+        const map = L.map(`map${listPath.route}`, {
+            center: [listPath.midpoint.split(',')[0], listPath.midpoint.split(',')[1]],
+            zoom: listPath.mapZoom,
+            zoomControl: false,
+            attributionControl: false,
+            fullscreenControl: true
+        });
+
+        L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4graatone&zoom={z}&x={x}&y={y}', {
+            attribution: 'Kartverket'
+        }).addTo(map);
+
+        if (listPath.geojson) {
+            fetch(listPath.geojson)
+                .then(response => response.json())
+                .then(geojson => {
+                    const geojsonLayer = L.geoJSON(geojson, {
+                        style: function(feature) {
+                            return {
+                                color: 'blue',
+                                weight: 3,
+                                opacity: 0.7,
+                                dashArray: '1, 4'
+                            };
+                        }
+                    }).addTo(map);
+
+                    const { distanceData, elevationData } = extractGraphData(geojson);
+                    createClimbGraph(`climb-graph-canvas-${listPath.route}`, distanceData, elevationData);
+
+                    const mapContainer = document.getElementById(`map${listPath.route}`);
+                    mapContainer.addEventListener('mouseenter', function() {
+                        const startLocation = listPath.zoomLocation.split(',').map(Number);
+                        map.setView(startLocation, listPath.mapZoomStart);
+                        setTimeout(function() {
+                            map.invalidateSize();
+                            geojsonLayer.setStyle({ opacity: 1 });
+                        }, 200); 
+                    });
+
+                    mapContainer.addEventListener('mouseleave', function() {
+                        setTimeout(function() {
+                            const midpoint = listPath.midpoint.split(',').map(Number);
+                            map.setView(midpoint, listPath.mapZoom);
+                            setTimeout(function() {
+                                map.invalidateSize();
+                                geojsonLayer.setStyle({ opacity: 0.7 });
+                            }, 200);
+                        }, 200);
+                    });
+                })
+                .catch(error => console.error(`Error loading GeoJSON for ${listPath.route}:`, error));
+        }
+    });
+}
 
 function extractGraphData(geojson) {
     let distanceData = [];
@@ -167,3 +169,6 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
 
     return R * c;
 }
+
+// Export the filterPaths function
+export { filterPaths };

@@ -1,6 +1,10 @@
 import { listPaths } from './listPaths.js';
 
-var exploreMap = L.map('explore-map').setView([69.6500, 21.2900], 8);
+var exploreMap = L.map('explore-map', {
+    zoom: 8,
+    center: [69.6500, 21.2900],
+    zoomAnimation: true
+});
 L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&zoom={z}&x={x}&y={y}', {
     attribution: 'Kartverket'
 }).addTo(exploreMap);
@@ -12,16 +16,19 @@ const customMarkerIcon = L.divIcon({
     html: `
     <span class="material-symbols-outlined">directions_bike</span>
     `,
-    className: 'custom-marker', 
+    className: 'custom-marker',
     iconSize: [24, 24],
     iconAnchor: [12, 12]
 });
 
+let geojsonLayers = []; // Array to keep track of geojson layers
+
 function loadGeoJson(paths) {
     let allLatlngs = [];
+    let promises = [];
 
     paths.forEach(path => {
-        fetch(path.geojson)
+        let promise = fetch(path.geojson)
             .then(response => response.json())
             .then(geojson => {
                 const defaultStyle = {
@@ -51,9 +58,8 @@ function loadGeoJson(paths) {
                             layer.setStyle(defaultStyle);
                         });
                     }
-                }).addTo(exploreMap);
+                });
 
-                // Collect all latlngs from the geojson to calculate bounds
                 geojsonLayer.eachLayer(layer => {
                     if (layer.getLatLngs) {
                         layer.getLatLngs().forEach(latlng => {
@@ -66,15 +72,14 @@ function loadGeoJson(paths) {
                     }
                 });
 
-                // Add a custom SVG marker at the first coordinate of the path
                 const firstCoord = geojson.features[0].geometry.coordinates[0];
                 let coords = firstCoord;
                 if (Array.isArray(coords[0])) {
-                    coords = coords[0]; // Get the first set of coordinates
+                    coords = coords[0];
                 }
                 const [lng, lat] = coords;
                 const latlng = new L.LatLng(lat, lng);
-                const marker = L.marker(latlng, { icon: customMarkerIcon }).addTo(exploreMap);
+                const marker = L.marker(latlng, { icon: customMarkerIcon });
 
                 marker.on('click', function() {
                     displayPathInfo(path);
@@ -88,13 +93,22 @@ function loadGeoJson(paths) {
                     geojsonLayer.setStyle(defaultStyle);
                 });
 
-                // Update the map view to fit bounds with padding
-                if (allLatlngs.length > 0) {
-                    const bounds = L.latLngBounds(allLatlngs);
-                    exploreMap.fitBounds(bounds, { padding: [50, 50] }); // Adjust padding as needed
-                }
+                geojsonLayer.addTo(exploreMap);
+                marker.addTo(exploreMap);
+
+                geojsonLayers.push(geojsonLayer); // Keep track of the layer
+                geojsonLayers.push(marker); // Keep track of the marker
             })
             .catch(error => console.error(`Error loading GeoJSON for ${path.route}:`, error));
+
+        promises.push(promise);
+    });
+
+    Promise.all(promises).then(() => {
+        if (allLatlngs.length > 0) {
+            const bounds = L.latLngBounds(allLatlngs);
+            exploreMap.flyToBounds(bounds, { padding: [50, 50] });
+        }
     });
 }
 
@@ -114,7 +128,7 @@ function displayPathInfo(path) {
     `;
 }
 
-function filterPaths() {
+export function filterPaths() {
     const urlParams = new URLSearchParams(window.location.search);
     const type = urlParams.get('type');
     const grade = urlParams.get('grade');
@@ -128,28 +142,32 @@ function filterPaths() {
         filteredPaths = filteredPaths.filter(path => path.grade.toLowerCase().includes(grade.toLowerCase()));
     }
 
-    exploreMap.eachLayer(layer => {
-        if (layer instanceof L.GeoJSON || layer instanceof L.Marker) {
-            exploreMap.removeLayer(layer);
-        }
+    // Remove only the GeoJSON layers
+    geojsonLayers.forEach(layer => {
+        exploreMap.removeLayer(layer);
     });
+    geojsonLayers = []; // Clear the array
 
     loadGeoJson(filteredPaths);
 }
 
-filterPaths();
+document.addEventListener('DOMContentLoaded', function() {
+    applyFiltersFromURL();
+});
 
-document.getElementById('filter-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const formData = new FormData(this);
-    const params = new URLSearchParams();
+function applyFiltersFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+    const grade = urlParams.get('grade');
 
-    for (const [key, value] of formData.entries()) {
-        if (value) {
-            params.append(key, value);
-        }
+    const filterForm = document.getElementById('filter-form');
+
+    if (type) {
+        filterForm.elements['type'].value = type;
+    }
+    if (grade) {
+        filterForm.elements['grade'].value = grade;
     }
 
-    window.location.search = params.toString();
-    filterPaths();
-});
+    filterPaths(); // Call the filter function to apply filters on page load
+}
