@@ -1,0 +1,92 @@
+<head>
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body[data-darkmode="on"] {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .toggle-wrapper {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+
+    .toggle {
+      width: 50px;
+      height: 25px;
+      background-color: #ccc;
+      border-radius: 25px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .toggle[data-active="true"] {
+      background-color: #4caf50;
+    }
+
+    .toggle::before {
+      content: "";
+      position: absolute;
+      width: 21px;
+      height: 21px;
+      background-color: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+
+    .toggle[data-active="true"]::before {
+      transform: translateX(25px);
+    }
+  </style>
+</head>
+  <div class="container-nav">
+    <div class="nav-links">
+      <a href="./index.html"><span class="material-symbols-outlined">home</span></a>
+      <a href="./explore.html" style="position: relative;"><span class="material-symbols-outlined">map</span></a>
+      <a href="./share.html"><span class="material-symbols-outlined">ios_share</span></a>
+      <a href="./about.html"><span class="material-symbols-outlined">help</span></a>
+      <div class="toggle-wrapper">
+        <div id="dark-mode-toggle" class="toggle"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('dark-mode-toggle');
+      console.log('DOMContentLoaded event fired.');
+
+      // Load the saved theme from localStorage
+      const savedTheme = localStorage.getItem('theme');
+      console.log('Saved theme:', savedTheme);
+      if (savedTheme === 'dark') {
+        document.body.setAttribute('data-darkmode', 'on');
+        toggle.setAttribute('data-active', 'true');
+      }
+
+      // Add event listener to the toggle switch
+      toggle.addEventListener('click', function () {
+        console.log('Toggle clicked.');
+        const isActive = document.body.getAttribute('data-darkmode') === 'on';
+        if (isActive) {
+          document.body.removeAttribute('data-darkmode');
+          toggle.removeAttribute('data-active');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.body.setAttribute('data-darkmode', 'on');
+          toggle.setAttribute('data-active', 'true');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    });
+  </script>
+

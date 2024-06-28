@@ -1,4 +1,6 @@
 import { listPaths } from './listPaths.js';
+import { preprocessGeoJSON, geojsonData } from './preprocess-geojson.js';
+import { createClimbGraph } from './climbGraph.js';
 
 var exploreMap = L.map('explore-map', {
     zoom: 8,
@@ -123,6 +125,10 @@ function displayPathInfo(path) {
         <div class="textbox">
             <h2>${path.name}, ${path.area}</h2>
             <p>${path.description}</p>
+            <div class="path-grade">
+                <div class="path-grade-item"><b>Type:</b> ${path.type}</div>
+                <div class="path-grade-item"><b>Grad:</b> ${path.grade}</div>
+            </div>
         </div>
         <a href="./trail.html?municipality=${path.municipality}&route=${path.route}">Explore</a>
     `;
