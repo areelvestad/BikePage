@@ -21,7 +21,7 @@ function createHtmlPaths(listPath) {
             <h2>${listPath.route}</h2>
             <h3>${listPath.area}, ${listPath.municipality}</h3>
         </div>
-        <div class="path-image" style="background-image: url('./IMG/${listPath.name}/01/${listPath.name}_300.jpg');"></div>
+        <div class="path-image" style="background-image: url('./IMG/${listPath.name}/01/${listPath.name}_350.jpg');"></div>
         <div class="path-maps">
             <div id="map${listPath.route}" class="map"></div>
         </div>

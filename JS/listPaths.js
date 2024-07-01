@@ -206,6 +206,29 @@ const listPaths = [
         mapZoomStart:   '13',
         mapZoomPage:    '10'
     },
+    {
+        municipality:   'Nordreisa',
+        area:           'Ytre Nordreisa',
+        name:           'Gjøvarden',
+        route:          'Gjøvarden',
+        description:    'Fin første del, mens siste va ganske ræv',
+        descriptionLong:'Long description.',
+        type:           'Enduro',
+        grade:          'Advanced',
+        Water:          'River',
+        severalRoutes:  'No',
+        surface:        'Dirt trail and rocky trail',
+        hikingTrail:    'Yes',
+        geojson:        './GEOJSON/Gjøvarden.geojson',
+        startLocation:  '69.9111, 20.9365',
+        endLocation:    '69.9005, 20.9353',
+        parking:        '69.9001, 20.9352',
+        midpoint:       '69.9062, 20.9285',
+        zoomLocation:   '69.9062, 20.9285',
+        mapZoom:        '10',
+        mapZoomStart:   '13',
+        mapZoomPage:    '13'
+    },
 ];
 
 export { listPaths };

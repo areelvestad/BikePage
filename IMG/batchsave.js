@@ -1,6 +1,6 @@
 // Photoshop Script to Batch Resize and Save Images
 
-// Function to resize and save the image
+// Function to resize and save the image while maintaining aspect ratio
 function resizeAndSave(file, sizes, outputFolder) {
     var originalName = file.name.split('.')[0];
     for (var i = 0; i < sizes.length; i++) {
@@ -9,8 +9,21 @@ function resizeAndSave(file, sizes, outputFolder) {
         // Duplicate the document
         var doc = app.open(file);
         
+        // Calculate the new dimensions while maintaining aspect ratio
+        var originalWidth = doc.width;
+        var originalHeight = doc.height;
+        var aspectRatio = originalWidth / originalHeight;
+        
+        if (originalWidth > originalHeight) {
+            var newWidth = size;
+            var newHeight = size / aspectRatio;
+        } else {
+            var newHeight = size;
+            var newWidth = size * aspectRatio;
+        }
+
         // Resize the image
-        doc.resizeImage(size, size, null, ResampleMethod.BICUBIC);
+        doc.resizeImage(newWidth, newHeight, null, ResampleMethod.BICUBIC);
 
         // Prepare the save options
         var saveOptions = new JPEGSaveOptions();
@@ -25,8 +38,8 @@ function resizeAndSave(file, sizes, outputFolder) {
     }
 }
 
-// Main function
-function main() {
+// Function to select folders and process images
+function processFolders() {
     // Select the folder with the images
     var inputFolder = Folder.selectDialog("Select the folder with images to resize");
     if (inputFolder == null) return;
@@ -49,7 +62,15 @@ function main() {
     }
 
     alert("Batch resizing and saving completed!");
+
+    // Ask to choose a new folder or cancel
+    var continueProcessing = confirm("Do you want to process another folder?");
+    if (continueProcessing) {
+        processFolders();
+    } else {
+        alert("Process completed.");
+    }
 }
 
-// Run the main function
-main();
+// Run the processFolders function
+processFolders();

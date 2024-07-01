@@ -121,7 +121,7 @@ function displayPathInfo(path) {
     pathTextbox.classList.remove('hidden');
 
     pathTextbox.innerHTML = `
-        <img src='./IMG/${path.name}/01/${path.name}_300.jpg'>
+        <img src='./IMG/${path.name}/01/${path.name}_350.jpg'>
         <div class="textbox">
             <h2>${path.name}, ${path.area}</h2>
             <p>${path.description}</p>
