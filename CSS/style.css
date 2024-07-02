@@ -163,6 +163,17 @@ body {
         background: none;
         cursor: pointer;
         color: var(--color-text);
+        font-size: .9em;
+        text-align: end;
+        width: fit-content;
+    }
+    .container-filter > form > select > option {
+        background: var(--color-bright-a7);
+        color: var(--color-text);
+        text-align: center;
+    }
+    .container-filter > form > select > option:nth-child(1) {
+        display: none;
     }
     .container-filter > form > button {
         border: none;
@@ -315,20 +326,48 @@ body {
     text-align: center;
     font-size: 1em;
 }
-
+/* FOOTER */
 .container-footer {
     background-color: var(--color-dark);
     width: 100%;
-    height: 250px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 2em;
     color: var(--color-text-inverted);
     font-weight: 200;
     margin-top: 1em;
-    justify-content: center;
+    padding-block: .5em;
+    justify-content: start;
     align-items: center;
 }
+.footer-logo > img {
+    width: 100px;
+    margin-bottom: 1em;
+}
+.footer-text {
+    color:gray;
+    font-weight: 400;
+    margin-bottom: .3em;
+}
+.footer-credits {
+    color:gray;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: .3em;
+    font-family: 'Gloria Hallelujah';
+}
+.footer-contact > a > .material-symbols-outlined {
+    color: var(--color-text-inverted);
+    font-size: 3em;
+    margin-inline: .3em;
+    margin-block: .3em;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 20
+}
+
 
 @media screen and (max-width: 940px ) {
     .container-paths {
@@ -417,6 +456,7 @@ body {
 
 /* ICONS */
 .material-symbols-outlined {
+
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
@@ -427,3 +467,5 @@ a > .material-symbols-outlined:hover {
     outline: 1px solid gray;
     border-radius: 15px;
 }
+
+

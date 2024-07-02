@@ -53,6 +53,10 @@ async function createHtmlPaths(listPath) {
                             <div class="trail-grade-climb"><b>Climb:</b> ${listPath.climb} m</div>
                             <div class="trail-grade-type"><b>Type:</b> ${listPath.type}</div>
                             <div class="trail-grade-grade ${listPath.grade}"><b>Grade:</b> ${listPath.grade}</div>
+                            <div class="trail-grade-grade"><b>Surface:</b> ${listPath.surface}</div>
+                            <div class="trail-grade-grade"><b>Several routes:</b> ${listPath.severalRoutes}</div>
+                            <div class="trail-grade-type"><b>Hiking trail:</b> ${listPath.hikingTrail}</div>
+                            <div class="trail-grade-type"><b>Water:</b> ${listPath.Water}</div>
                         </div>
                         <div class="trail-climb-graph">
                             <canvas id="trail-climb-graph-canvas-${listPath.route}"></canvas>

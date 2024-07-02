@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+
     <!-- ICONS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
@@ -24,13 +26,15 @@
         <div class="container-filter">
             <form id="filter-form">
                 <select name="type">
-                    <option value="">Alle stiler</option>
+                    <option value="">Type rute</option>
+                    <option value="">Alle</option>
                     <option value="Enduro">Enduro</option>
                     <option value="XC">XC</option>
                     <!-- Add other types as needed -->
                 </select>
                 <select name="grade">
-                    <option value="">Alle grader</option>
+                    <option value="">Vanskelighetsgrad</option>
+                    <option value="">Alle</option>
                     <option value="Beginner">Nybegynner</option>
                     <option value="Advanced">Avansert</option>
                     <option value="Expert">Ekspert</option>
@@ -45,8 +49,8 @@
         <div class="container-textbox" id="container-textbox">
             <div class="path-textbox hidden" id="path-textbox"></div>
             <div class="path-notextbox show" id="path-notextbox">
-                <h2>Click on a trail!</h2>
-                <p>This box wil display info about the path you clicked on.</p>
+                <h2>Klikk på en rute!</h2>
+                <p>Så dukker de topp litt ekstra info her</p>
             </div>
         </div>
         <div class="container-footer"></div>
