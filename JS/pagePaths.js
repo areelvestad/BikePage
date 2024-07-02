@@ -57,7 +57,7 @@ async function createHtmlPaths(listPath) {
                         <div class="trail-climb-graph">
                             <canvas id="trail-climb-graph-canvas-${listPath.route}"></canvas>
                         </div>
-                        <div class="trail-desc-heightmap">Heightmap from top to bottom</div>
+                        <div class="trail-desc-heightmap">Høydekurve fra toppen til bunnen</div>
                     </div>
                 </div>
             </div>
