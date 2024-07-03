@@ -2,7 +2,12 @@
 .trail-maps {
     height: 300px;
     border: 1px solid rgb(221, 221, 221);
-
+}
+.leaflet-control-fullscreen {
+    transition: opacity .2s ease-in-out;
+}
+.trail-maps:hover .leaflet-control-fullscreen {
+    opacity: 1;
 }
 
 @media screen and (max-width: 620px ) {

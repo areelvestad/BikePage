@@ -21,7 +21,7 @@ async function createHtmlPaths(listPath) {
         #trail-climb-graph-canvas-${listPath.route} {
             height: 100%;
             width: 100%;
-        }  
+        }
     </style>
 
     <div class="container-trail">

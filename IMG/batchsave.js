@@ -4,33 +4,27 @@
 function resizeAndSave(file, sizes, outputFolder) {
     var originalName = file.name.split('.')[0];
     for (var i = 0; i < sizes.length; i++) {
-        var size = sizes[i];
+        var newWidth = sizes[i];
         
-        // Duplicate the document
+        // Open the document
         var doc = app.open(file);
         
-        // Calculate the new dimensions while maintaining aspect ratio
-        var originalWidth = doc.width;
-        var originalHeight = doc.height;
-        var aspectRatio = originalWidth / originalHeight;
+        // Calculate the new height while maintaining aspect ratio
+        var originalWidth = doc.width.as('px');
+        var originalHeight = doc.height.as('px');
+        var aspectRatio = originalHeight / originalWidth;
         
-        if (originalWidth > originalHeight) {
-            var newWidth = size;
-            var newHeight = size / aspectRatio;
-        } else {
-            var newHeight = size;
-            var newWidth = size * aspectRatio;
-        }
+        var newHeight = newWidth * aspectRatio;
 
         // Resize the image
-        doc.resizeImage(newWidth, newHeight, null, ResampleMethod.BICUBIC);
+        doc.resizeImage(UnitValue(newWidth, 'px'), undefined, undefined, ResampleMethod.BICUBIC);
 
         // Prepare the save options
         var saveOptions = new JPEGSaveOptions();
         saveOptions.quality = 12;
 
         // Save the file
-        var saveFile = new File(outputFolder + '/' + originalName + '_' + size + '.jpg');
+        var saveFile = new File(outputFolder + '/' + originalName + '_' + newWidth + '.jpg');
         doc.saveAs(saveFile, saveOptions, true, Extension.LOWERCASE);
         
         // Close the document without saving
@@ -48,7 +42,7 @@ function processFolders() {
     var outputFolder = Folder.selectDialog("Select the folder to save resized images");
     if (outputFolder == null) return;
 
-    // Define the sizes to which images should be resized
+    // Define the widths to which images should be resized
     var sizes = [300, 350, 620, 930]; // Example sizes, you can add more
 
     // Get all the files in the input folder
