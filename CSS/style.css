@@ -466,7 +466,7 @@ body {
   'opsz' 20
 }
 a > .material-symbols-outlined:hover {
-    outline: 1px solid gray;
+    outline: 2px solid var(--color-text);
     border-radius: 15px;
 }
 
