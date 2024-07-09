@@ -7,7 +7,7 @@ var exploreMap = L.map('explore-map', {
     center: [69.6500, 21.2900],
     zoomAnimation: true
 });
-L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&zoom={z}&x={x}&y={y}', {
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Kartverket'
 }).addTo(exploreMap);
 

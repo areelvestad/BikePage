@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fullscreenControl: true
         });
 
-        L.tileLayer('https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&zoom={z}&x={x}&y={y}', {
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Kartverket'
         }).addTo(map);
 
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     L.geoJSON(geojson, {
                         style: function(feature) {
                             return {
-                                color: 'blue',
+                                color: 'red',
                                 weight: 3,
                                 opacity: 0.7,
                                 dashArray: '1, 4'
