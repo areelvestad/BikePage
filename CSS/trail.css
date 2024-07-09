@@ -205,8 +205,8 @@
             .grade-S0::before, .grade-S1::before, .grade-S2::before, .grade-S3::before, .grade-S4::before, .grade-S5::before {
                 position: absolute;
                 bottom: 0;
-                right: unset !important;
-                left: 0;
+                left: unset !important;
+                right: 0;
                 width: 235px;
                 padding: .3em;
                 box-shadow: 1px 1px 10px black;
