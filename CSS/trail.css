@@ -202,6 +202,39 @@
                 bottom: .5em;
                 left: .5em;
             }
+            .grade-S0::before, .grade-S1::before, .grade-S2::before, .grade-S3::before, .grade-S4::before, .grade-S5::before {
+                position: absolute;
+                bottom: 0;
+                right: unset !important;
+                left: 0;
+                width: 235px;
+                padding: .3em;
+                box-shadow: 1px 1px 10px black;
+                background-color: var(--color-card-bg);
+                border: 3px solid var(--color-card-border);
+                text-align: start;
+                transition: all .2s ease-in-out;
+                display: none;
+                z-index: 999;
+            }
+                .grade-S0::after {
+                    content: ' - Veldig lett ⓘ';
+                }
+                .grade-S1::after {
+                    content: ' - Lett ⓘ';
+                }
+                .grade-S2::after {
+                    content: ' - Middels ⓘ';
+                }
+                .grade-S3::after {
+                    content: ' - Vanskelig ⓘ';
+                }
+                .grade-S4::after {
+                    content: ' - Veldig vanskelig ⓘ';
+                }
+                .grade-S5::after {
+                    content: ' - Ekstremt vanskelig';
+                }
 
     @media screen and (max-width: 620px ) {
         .trail-images > img {

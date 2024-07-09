@@ -60,14 +60,16 @@
         position: absolute;
         text-decoration: none;
         font-size: .8em;
-        font-weight: 400;
-        font-style: italic;
+        font-weight: 500;
         text-transform: uppercase;
         color: var(--color-text);
         background-color: var(--color-bright-a7);
         padding: .5em;
         border-radius: 3px;
         margin: .3em;
+    }
+    .path-textbox > a:hover {
+        font-weight: 600;
     }
     @media screen and (max-width: 620px ) {
         .path-textbox > img {
@@ -92,6 +94,25 @@
         margin-right: .3em;
         border:1px solid var(--color-bright-1);
     }
+        .grade-S0::after {
+            content: ' - Veldig lett ⓘ';
+        }
+        .grade-S1::after {
+            content: ' - Lett ⓘ';
+        }
+        .grade-S2::after {
+            content: ' - Middels ⓘ';
+        }
+        .grade-S3::after {
+            content: ' - Vanskelig ⓘ';
+        }
+        .grade-S4::after {
+            content: ' - Veldig vanskelig ⓘ';
+        }
+        .grade-S5::after {
+            content: ' - Ekstremt vanskelig';
+        }
+
 .container-footer {
     margin-top: 0;
 }
@@ -105,8 +126,16 @@
 }
 
 .custom-marker {
-    background-color: rgb(180, 186, 196);
-    color: rgb(49, 54, 58);
+    background-color: rgb(229, 231, 233);
+    color: rgb(46, 46, 46);
+    padding: .3em;
+    border-radius: 50%;
+    border: 2px solid rgb(27, 84, 182);
+    overflow: hidden;
+}
+.custom-parking-marker {
+    background-color: rgb(27, 84, 182);
+    color: rgb(255, 255, 255);
     padding: .3em;
     border-radius: 50%;
     border: 2px solid rgba(0, 0, 0, 0.425);
@@ -117,17 +146,16 @@
   'FILL' 0,
   'wght' 500,
   'GRAD' -25,
-  'opsz' 40
+  'opsz' 40;
 }
+.custom-parking-marker > .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20;
+  }
     .custom-marker:hover {
-        border-color: rgb(128, 0, 0);
-        background-color: rgb(180, 186, 196);
-    }
-    .custom-marker:hover > .material-symbols-outlined {
-        color: rgb(128, 0, 0);
-        font-variation-settings:
-        'FILL' 0,
-        'wght' 600,
-        'GRAD' -25,
-        'opsz' 40;
+        border-color: green;
+        color: green;
     }

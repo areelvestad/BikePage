@@ -15,15 +15,21 @@ const pathTextbox = document.getElementById('path-textbox');
 const pathNoTextbox = document.getElementById('path-notextbox');
 
 const customMarkerIcon = L.divIcon({
-    html: `
-    <span class="material-symbols-outlined">directions_bike</span>
-    `,
+    html: `<span class="material-symbols-outlined">directions_bike</span>`,
     className: 'custom-marker',
     iconSize: [24, 24],
     iconAnchor: [12, 12]
 });
 
+const parkingMarkerIcon = L.divIcon({
+    html: `<span class="material-symbols-outlined">local_parking</span>`,
+    className: 'custom-parking-marker',
+    iconSize: [24, 24],
+    iconAnchor: [12, 12]
+});
+
 let geojsonLayers = []; // Array to keep track of geojson layers
+let parkingMarker = null; // Variable to keep track of the parking marker
 
 function loadGeoJson(paths) {
     let allLatlngs = [];
@@ -34,14 +40,14 @@ function loadGeoJson(paths) {
             .then(response => response.json())
             .then(geojson => {
                 const defaultStyle = {
-                    color: 'blue',
+                    color: 'rgb(27, 84, 182)',
                     weight: 3,
                     opacity: 0.7,
                     dashArray: '1, 4'
                 };
 
                 const hoverStyle = {
-                    color: 'darkred',
+                    color: 'green',
                     weight: 3,
                     opacity: 1,
                     dashArray: '1, 4'
@@ -126,12 +132,23 @@ function displayPathInfo(path) {
             <h2>${path.name}, ${path.area}</h2>
             <p>${path.description}</p>
             <div class="path-grade">
-                <div class="path-grade-item"><b>Type:</b> ${path.type}</div>
-                <div class="path-grade-item"><b>Grad:</b> ${path.grade}</div>
+                <div class="path-grade-type"><b>Type:</b> ${path.type}</div>
+                <div class="path-grade-item"><b>Grad:</b> <span class="grade-${path.grade}">${path.grade}</span></div>
             </div>
         </div>
-        <a href="./trail.html?municipality=${path.municipality}&route=${path.route}">Explore</a>
+        <a href="./trail.html?municipality=${path.municipality}&route=${path.route}">Utforsk</a>
     `;
+
+    // Add or update the parking marker
+    if (parkingMarker) {
+        exploreMap.removeLayer(parkingMarker);
+    }
+    if (path.parking) {
+        const [lat, lng] = path.parking.split(',').map(Number);
+        if (!isNaN(lat) && !isNaN(lng)) {
+            parkingMarker = L.marker([lat, lng], { icon: parkingMarkerIcon }).addTo(exploreMap);
+        }
+    }
 }
 
 export function filterPaths() {

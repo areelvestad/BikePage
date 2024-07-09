@@ -259,6 +259,7 @@ body {
     min-height: 250px;
     z-index: 500;
     background-size: cover;
+    background-position: center;
 }
 .path-image::after {
     content: '';
@@ -327,6 +328,50 @@ body {
     text-align: center;
     font-size: 1em;
 }
+.path-grade-item {
+    position: relative;
+    cursor: pointer;
+}
+    .path-grade-item:hover .grade-S0::before,
+    .path-grade-item:hover .grade-S1::before,
+    .path-grade-item:hover .grade-S2::before,
+    .path-grade-item:hover .grade-S3::before,
+    .path-grade-item:hover .grade-S4::before,
+    .path-grade-item:hover .grade-S5::before {
+        display: block;
+    }
+    .grade-S0::before, .grade-S1::before, .grade-S2::before, .grade-S3::before, .grade-S4::before, .grade-S5::before {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 235px;
+        padding: .3em;
+        box-shadow: 1px 1px 10px black;
+        background-color: var(--color-card-bg);
+        border: 3px solid var(--color-card-border);
+        text-align: start;
+        transition: all .2s ease-in-out;
+        display: none;
+        z-index: 999;
+    }
+        .grade-S0::before {
+            content: 'S0: Den enkleste løypetypen er preget av lett til moderat stigning, sklisikkert underlag og svake svinger. For å gjennomføre denne løypa er det ingen spesielle krav til kjøreteknikken.';
+        }
+        .grade-S1::before {
+            content: 'S1: Her kan du forvente mindre hindringer, som røtter eller steiner. Til dels ustabilt underlag og svingene blir kvassere, men uten skarpe svinger. Maksimal gradient her er 40 prosent.';
+        }
+        .grade-S2::before {
+            content: 'S2: Vanskelighetsgraden øker og store steiner og røtter er å forvente. Sjelden fast grunn under hjulene og det er flate trinn eller trapper. Kvasse svinger og brattheten kan være opptil 70 prosent.';
+        }
+        .grade-S3::before {
+            content: 'S3: I denne kategorien beveger du deg i blokkert terreng med store steinblokker eller lange røtter. Skarpe svinger og bratte bakker og man må ofte påregne løst underlag. Vanlige bakker på 70 prosent er vanlige.';
+        }
+        .grade-S4::before {
+            content: 'S4: Det er bratt og mange hinder. Lange, utfordrende stier med røtter og store steinblokker, og løst underlag er vanlig. Skarpe svinger og bratte stigninger stiller spesielle krav til kjøreteknikken.';
+        }
+        .grade-S5::before {
+            content: 'S5: Den øvre enden av skalaen er preget av sterkt hindret terreng, løst underlag med steinsprut, trange skarpe svinger og høye hindringer, som veltede trær – selvfølgelig, inkludert bratte stigninger. Det er liten bremselengde og MTB-teknikken settes på prøve.';
+        }
 /* FOOTER */
 .container-footer {
     background-color: var(--color-dark);
@@ -350,6 +395,14 @@ body {
     color:gray;
     font-weight: 400;
     margin-bottom: .3em;
+    
+}
+.footer-text > p {
+    transition: opacity .2s ease-in-out;
+    opacity: .3;
+}
+.footer-text > p:hover {
+    opacity: 1;
 }
 .footer-credits {
     color:gray;
@@ -396,6 +449,10 @@ body {
     }
     .paths-welcome > p {
         width: 300px;
+    }
+    .paths-welcome > h1 {
+        font-size: 2.7em;
+        margin-bottom: .3em;
     }
     .container-nav > .nav-logo {
         font-size: 1em;

@@ -30,12 +30,12 @@ function createHtmlPaths(listPath) {
         </div>
         <div class="path-info">
             <div class="path-description">${listPath.description}</div>
-            <div class="path-button"><a href="./trail.html?municipality=${listPath.municipality}&route=${listPath.route}">Explore</a></div>
+            <div class="path-button"><a href="./trail.html?municipality=${listPath.municipality}&route=${listPath.route}">Utforsk</a></div>
             <div class="path-grade">
-                <div class="path-grade-length"><b>Length:</b> ${listPath.length} km</div>
-                <div class="path-grade-climb"><b>Climb:</b> ${listPath.climb} m</div>
+                <div class="path-grade-length"><b>Lengde:</b> ${listPath.length} km</div>
                 <div class="path-grade-type"><b>Type:</b> ${listPath.type}</div>
-                <div class="path-grade-grade ${listPath.grade}"><b>Grade:</b> ${listPath.grade}</div>
+                <div class="path-grade-climb"><b>Nedstigning:</b> ${listPath.climb} m</div>
+                <div class="path-grade-item"><b>Grad:</b> <span class="grade-${listPath.grade}">${listPath.grade}</span></div>
             </div>
         </div>
     </div>

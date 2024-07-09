@@ -41,22 +41,22 @@ async function createHtmlPaths(listPath) {
         </div>
         <div class="trail-info">
             <div class="desc-map-graph">
-                <div class="trail-description">${listPath.descriptionLong}</div>
+                <div class="trail-description">${listPath.descriptionLong}<span><br><br><i><b>OBS: </b>Kartet viser ruta man sykler ned. Veien opp er ikke alltid den samme. Infoboksen viser lengda på ruta ned og hvor mange høydemeter det er fra topp til bunn.</i></span></div>
                 <div class="aside-info">
                     <div class="trail-maps">
                         <div id="map${listPath.route}"></div>
                     </div>
                     <div class="trail-graph">
-                        <h3>Trail info</h3>
+                        <h3>Info om ruta</h3>
                         <div class="trail-info-aside">
-                            <div class="trail-grade-length"><b>Length:</b> ${listPath.length} km</div>
-                            <div class="trail-grade-climb"><b>Climb:</b> ${listPath.climb} m</div>
+                            <div class="trail-grade-length"><b>Lengde:</b> ${listPath.length} km</div>
+                            <div class="trail-grade-climb"><b>Nedstigning:</b> ${listPath.climb} m</div>
                             <div class="trail-grade-type"><b>Type:</b> ${listPath.type}</div>
-                            <div class="trail-grade-grade ${listPath.grade}"><b>Grade:</b> ${listPath.grade}</div>
-                            <div class="trail-grade-grade"><b>Surface:</b> ${listPath.surface}</div>
-                            <div class="trail-grade-grade"><b>Several routes:</b> ${listPath.severalRoutes}</div>
-                            <div class="trail-grade-type"><b>Hiking trail:</b> ${listPath.hikingTrail}</div>
-                            <div class="trail-grade-type"><b>Water:</b> ${listPath.Water}</div>
+                            <div class="path-grade-item"><b>Grad:</b> <span class="grade-${listPath.grade}">${listPath.grade}</span></div>
+                            <div class="trail-grade-grade"><b>Underlag:</b> ${listPath.surface}</div>
+                            <div class="trail-grade-grade"><b>Flere ruter:</b> ${listPath.severalRoutes}</div>
+                            <div class="trail-grade-type"><b>Populær tursti:</b> ${listPath.hikingTrail}</div>
+                            <div class="trail-grade-type"><b>Tilgang på vann:</b> ${listPath.Water}</div>
                         </div>
                         <div class="trail-climb-graph">
                             <canvas id="trail-climb-graph-canvas-${listPath.route}"></canvas>
