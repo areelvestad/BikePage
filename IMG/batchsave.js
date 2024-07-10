@@ -21,7 +21,7 @@ function resizeAndSave(file, sizes, outputFolder) {
 
         // Prepare the save options
         var saveOptions = new JPEGSaveOptions();
-        saveOptions.quality = 12;
+        saveOptions.quality = 8;
 
         // Save the file
         var saveFile = new File(outputFolder + '/' + originalName + '_' + newWidth + '.jpg');
@@ -43,7 +43,7 @@ function processFolders() {
     if (outputFolder == null) return;
 
     // Define the widths to which images should be resized
-    var sizes = [300, 350, 620, 930]; // Example sizes, you can add more
+    var sizes = [350, 930]; // Example sizes, you can add more
 
     // Get all the files in the input folder
     var files = inputFolder.getFiles(function(file) {

@@ -40,7 +40,7 @@ function loadGeoJson(paths) {
             .then(response => response.json())
             .then(geojson => {
                 const defaultStyle = {
-                    color: 'rgb(27, 84, 182)',
+                    color: 'red',
                     weight: 3,
                     opacity: 0.7,
                     dashArray: '1, 4'

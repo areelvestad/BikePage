@@ -87,7 +87,7 @@ function filterPaths() {
                     const geojsonLayer = L.geoJSON(geojson, {
                         style: function(feature) {
                             return {
-                                color: 'blue',
+                                color: 'red',
                                 weight: 3,
                                 opacity: 0.7,
                                 dashArray: '1, 4'

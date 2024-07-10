@@ -299,6 +299,29 @@ const listPaths = [
         mapZoomStart:   '14',
         mapZoomPage:    '13'
     },
+    {
+        municipality:   'Nordreisa',
+        area:           'Rotsund',
+        name:           'Storbakklia',
+        route:          'Storbakklia',
+        description:    'Helt grei tur ned fra vestsiden av Sikkájárvi til Rotsunddalen. Ruta følger en gammel ATV-vei, men det er flere ruter ned.',
+        descriptionLong:'Long description.',
+        type:           'Enduro',
+        grade:          'S2',
+        Water:          'Bekk',
+        severalRoutes:  'Ja',
+        surface:        'ATV-spor, fast sti, steiner, grusvei',
+        hikingTrail:    'Ja',
+        geojson:        './GEOJSON/Storbakklia.geojson',
+        startLocation:  '69.7736, 20.7969',
+        endLocation:    '69.7679, 20.7310',
+        parking:        '69.7678, 20.7317',
+        midpoint:       '69.7686, 20.7617',
+        zoomLocation:   '69.7686, 20.7617',
+        mapZoom:        '10',
+        mapZoomStart:   '12',
+        mapZoomPage:    '12'
+    },
 ];
 
 export { listPaths };
