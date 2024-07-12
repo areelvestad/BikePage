@@ -7,8 +7,9 @@ var exploreMap = L.map('explore-map', {
     center: [69.6500, 21.2900],
     zoomAnimation: true
 });
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Kartverket'
+L.tileLayer('https://cache.kartverket.no/v1/wmts/1.0.0/topo/default/webmercator/{z}/{y}/{x}.png', {
+    attribution: 'Kartverket',
+    fullscreenControl: true
 }).addTo(exploreMap);
 
 const pathTextbox = document.getElementById('path-textbox');

@@ -76,7 +76,7 @@ function filterPaths() {
             fullscreenControl: true
         });
 
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        L.tileLayer('https://cache.kartverket.no/v1/wmts/1.0.0/topo/default/webmercator/{z}/{y}/{x}.png', {
             attribution: 'Kartverket'
         }).addTo(map);
 

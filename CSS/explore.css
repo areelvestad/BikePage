@@ -130,7 +130,7 @@
     color: rgb(46, 46, 46);
     padding: .3em;
     border-radius: 50%;
-    border: 2px solid rgb(27, 84, 182);
+    border: 2px solid rgb(133, 81, 81);
     overflow: hidden;
 }
 .custom-parking-marker {
@@ -159,3 +159,12 @@
         border-color: green;
         color: green;
     }
+
+.leaflet-control-fullscreen {
+    transition: opacity .2s ease-in-out;
+    z-index: 9999;
+}
+.container-map:hover .leaflet-control-fullscreen {
+    opacity: 1;
+}
+

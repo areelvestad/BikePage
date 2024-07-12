@@ -395,7 +395,9 @@ body {
     color:gray;
     font-weight: 400;
     margin-bottom: .3em;
-    
+    margin-inline: .3em;
+    text-align: center;
+    max-width: 300px;
 }
 .footer-text > p {
     transition: opacity .2s ease-in-out;
