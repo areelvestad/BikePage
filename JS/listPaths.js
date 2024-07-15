@@ -343,6 +343,29 @@ const listPaths = [
         "mapZoom": "8",
         "mapZoomStart": "11",
         "mapZoomPage": "10"
+    },
+    {
+        "municipality": "Nordreisa",
+        "area": "Storslett",
+        "name": "Jyppyrä",
+        "route": "Jyppyrä",
+        "description": "En helt grei tur som har et par krevende partier hvor man får utfordret seg litt. Fra foten av Jyppyrä og ned til tregrensa følger man en steinete sti, og avslutter med nydelig stisykling helt til det flater ut.",
+        "descriptionLong": "Long description.",
+        "type": "Enduro",
+        "grade": "S2",
+        "Water": "Bekk",
+        "severalRoutes": "Ja",
+        "surface": "Skogsvei, sti, røtter",
+        "hikingTrail": "Ja",
+        "geojson": "./GEOJSON/Jyppyrä.geojson",
+        "startLocation": "69.7736, 21.1482",
+        "endLocation": "69.76399, 21.07152",
+        "parking": "69.76424271564689, 21.06507179191515",
+        "midpoint": "69.76625715698546, 21.106730632632303",
+        "zoomLocation": "69.76625715698546, 21.106730632632303",
+        "mapZoom": "10",
+        "mapZoomStart": "12",
+        "mapZoomPage": "11"
     }
 ];
 
