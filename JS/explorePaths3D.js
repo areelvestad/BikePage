@@ -4,7 +4,7 @@ Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOi
 
 const viewer = new Cesium.Viewer('cesiumContainer', {
     terrainProvider: Cesium.createWorldTerrain(),
-    imageryProvider: Cesium.createWorldImagery(), 
+    imageryProvider: Cesium.createWorldImagery(),
     animation: false,
     timeline: false
 });
@@ -12,10 +12,10 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
 viewer.scene.globe.depthTestAgainstTerrain = true;
 
 viewer.camera.setView({
-    destination: Cesium.Cartesian3.fromDegrees(21.215057647316442, 69.7245400796181, 15000), // 15000 meters height
+    destination: Cesium.Cartesian3.fromDegrees(21.215057647316442, 69.7245400796181, 15000),
     orientation: {
         heading: Cesium.Math.toRadians(0),
-        pitch: Cesium.Math.toRadians(-30),
+        pitch: Cesium.Math.toRadians(-35),
         roll: 0.0
     }
 });
@@ -28,27 +28,41 @@ listPaths.forEach(path => {
         .then(response => response.json())
         .then(geojson => {
             const geoJsonDataSource = Cesium.GeoJsonDataSource.load(geojson, {
-                stroke: Cesium.Color.RED, 
-                fill: Cesium.Color.RED.withAlpha(0.5), 
-                strokeWidth: 3,
-                clampToGround: true 
+                stroke: Cesium.Color.RED,
+                fill: Cesium.Color.RED.withAlpha(0.5),
+                strokeWidth: 4,
+                clampToGround: true
             });
 
             viewer.dataSources.add(geoJsonDataSource);
             geoJsonDataSource.then(dataSource => {
                 const entities = dataSource.entities.values;
-                for (let entity of entities) {
-                    entity.billboard = new Cesium.BillboardGraphics({
-                        image: pinBuilder.fromText(path.name.charAt(0).toUpperCase(), Cesium.Color.RED, 48).toDataURL(),
-                        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-                    });
+                if (entities.length > 0) {
+                    const firstEntity = entities[0];
+                    if (firstEntity.polyline && firstEntity.polyline.positions) {
+                        const positions = firstEntity.polyline.positions.getValue(Cesium.JulianDate.now());
+                        if (positions && positions.length > 0) {
+                            const startPosition = positions[0];
+                            const cartographic = Cesium.Cartographic.fromCartesian(startPosition);
+                            const longitude = Cesium.Math.toDegrees(cartographic.longitude);
+                            const latitude = Cesium.Math.toDegrees(cartographic.latitude);
 
-                    entity.description = `
-                        <h2>${path.name}</h2>
-                        <p>${path.description}</p>
-                        <p><b>Type:</b> ${path.type}</p>
-                        <p><b>Grade:</b> ${path.grade}</p>
-                    `;
+                            viewer.entities.add({
+                                position: Cesium.Cartesian3.fromDegrees(longitude, latitude),
+                                billboard: {
+                                    image: pinBuilder.fromText(path.grade.toUpperCase(), Cesium.Color.RED, 48).toDataURL(),
+                                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                                    heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                                },
+                                description: `
+                                    <h2>${path.name}</h2>
+                                    <p>${path.description}</p>
+                                    <p><b>Type:</b> ${path.type}</p>
+                                    <p><b>Grade:</b> ${path.grade}</p>
+                                `
+                            });
+                        }
+                    }
                 }
             });
         })
