@@ -12,7 +12,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
 viewer.scene.globe.depthTestAgainstTerrain = true;
 
 viewer.camera.setView({
-    destination: Cesium.Cartesian3.fromDegrees(21.215057647316442, 69.7245400796181, 15000),
+    destination: Cesium.Cartesian3.fromDegrees(21.30, 69.35, 15000),
     orientation: {
         heading: Cesium.Math.toRadians(0),
         pitch: Cesium.Math.toRadians(-35),

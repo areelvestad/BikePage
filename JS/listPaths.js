@@ -352,7 +352,7 @@ const listPaths = [
         "description": "En helt grei tur som har et par krevende partier hvor man får utfordret seg litt. Fra foten av Jyppyrä og ned til tregrensa følger man en steinete sti, og avslutter med nydelig stisykling helt til det flater ut.",
         "descriptionLong": "Long description.",
         "type": "Enduro",
-        "grade": "S2",
+        "grade": "S3",
         "Water": "Bekk",
         "severalRoutes": "Ja",
         "surface": "Skogsvei, sti, røtter",
@@ -366,6 +366,29 @@ const listPaths = [
         "mapZoom": "10",
         "mapZoomStart": "12",
         "mapZoomPage": "11"
+    },
+    {
+        "municipality": "Nordreisa",
+        "area": "Reisadalen",
+        "name": "Sarafossen",
+        "route": "Sarafossen",
+        "description": "Enten man går opp for å se på Sarafossen eller bare vil sykle, er det her en helt grei tur. Svært bra første halvdel med fin stisykling. De siste høydemeterne er det en del steiner.",
+        "descriptionLong": "Long description.",
+        "type": "Enduro",
+        "grade": "S1",
+        "Water": "Elv, bekk",
+        "severalRoutes": "Ja",
+        "surface": "Sti, mye steiner og røtter, skogsvei",
+        "hikingTrail": "Ja",
+        "geojson": "./GEOJSON/Sarafossen.geojson",
+        "startLocation": "69.45722, 21.49891",
+        "endLocation": "69.4791, 21.4733",
+        "parking": "69.4727, 21.48772",
+        "midpoint": "69.4696, 21.4855",
+        "zoomLocation": "69.4696, 21.4855",
+        "mapZoom": "9",
+        "mapZoomStart": "13",
+        "mapZoomPage": "12"
     }
 ];
 
