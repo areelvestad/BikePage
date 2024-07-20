@@ -395,7 +395,7 @@ const listPaths = [
         "area": "Sørkjosen",
         "name": "Brattlia",
         "route": "Brattlia",
-        "description": "",
+        "description": "Skal du inn til Sikka, er dette en helt grei tur. Svært fint i øvre del av Jernelvdalen. Første del ned er overraskende gøy, men midten er så steinete at man bør planlegge linjene på forhånd for å få noe flyt.",
         "descriptionLong": "Long description.",
         "type": "Enduro",
         "grade": "S2",
