@@ -130,7 +130,7 @@ function displayPathInfo(path) {
     pathTextbox.innerHTML = `
         <img src='./IMG/${path.name}/01/${path.name}_350.jpg'>
         <div class="textbox">
-            <h2>${path.name}, ${path.area}</h2>
+            <h2>${path.route}, ${path.area}</h2>
             <p>${path.description}</p>
             <div class="path-grade">
                 <div class="path-grade-type"><b>Type:</b> ${path.type}</div>
