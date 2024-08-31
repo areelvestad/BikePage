@@ -107,7 +107,7 @@ const listPaths = [
         "geojson": "./GEOJSON/Lintuvaara.geojson",
         "startLocation": "69.5601, 21.2950",
         "endLocation": "69.5998, 21.2741",
-        "parking": "69.8411, 21.1446",
+        "parking": "",
         "midpoint": "69.5846, 21.3008",
         "zoomLocation": "69.5846, 21.3008",
         "mapZoom": "8",
@@ -503,6 +503,29 @@ const listPaths = [
         "zoomLocation": "69.77416, 21.60607",
         "mapZoom": "8",
         "mapZoomStart": "11",
+        "mapZoomPage": "10"
+    },
+    {
+        "municipality": "Nordreisa",
+        "area": "Storslett",
+        "name": "Lånivannet",
+        "route": "Lånivannet",
+        "description": "Kort, men veldig teknisk. Har flere bratte parti hvor man får testet både ferdighetene sine og sykkelen. Husk knebeskyttere!",
+        "descriptionLong": "",
+        "type": "Enduro",
+        "grade": "S4",
+        "Water": "Bekk, vann",
+        "severalRoutes": "Nei",
+        "surface": "Traktorvei, sti, berg, røtter",
+        "hikingTrail": "Ja",
+        "geojson": "./GEOJSON/Lånivannet.geojson",
+        "startLocation": "69.72379, 21.128578",
+        "endLocation": "69.73657, 21.12054",
+        "parking": "69.73662, 21.12021",
+        "midpoint": "69.7294, 21.1230",
+        "zoomLocation": "69.7304, 21.1230",
+        "mapZoom": "10",
+        "mapZoomStart": "14",
         "mapZoomPage": "10"
     }
 ];
