@@ -487,7 +487,7 @@ const listPaths = [
         "area": "Oksfjorddalen",
         "name": "Riehppegáisá",
         "route": "Riehppegáisá",
-        "description": "Fra foten av Riehppegáisá følger man en gammel gruvevei ned til Vaddas. Nydelig natur! God flyt i første del, så opp og ned langs Storelidalen, og slutter med et raskt parti til Vaddas.",
+        "description": "Fra skulderen av Riehppegáisá følger man en gammel gruvevei ned til Vaddas. Nydelig natur! Bratt og nye stein sikksakk ned fjellsia, så god flyt ned til dalen, så opp og ned langs Storelidalen, og slutter med et raskt parti til Vaddas.",
         "descriptionLong": "",
         "type": "Enduro",
         "grade": "S3",
@@ -527,6 +527,29 @@ const listPaths = [
         "mapZoom": "10",
         "mapZoomStart": "14",
         "mapZoomPage": "10"
+    },
+    {
+        "municipality": "Nordreisa",
+        "area": "Storslett",
+        "name": "Beassejávrrit",
+        "route": "Beassejávrrit",
+        "description": "Enkel tur som kan være grei for å trene på litt brattere stisykling. Det er to vanskelig og steine parti, men ellers er stien veldig god.",
+        "descriptionLong": "",
+        "type": "Enduro",
+        "grade": "S2",
+        "Water": "Bekk, vann",
+        "severalRoutes": "Nei",
+        "surface": "Sti, steiner, røtter",
+        "hikingTrail": "Ja",
+        "geojson": "./GEOJSON/Beassejávrrit.geojson",
+        "startLocation": "",
+        "endLocation": "",
+        "parking": "69.7553, 21.0222",
+        "midpoint": "69.7403, 20.9988",
+        "zoomLocation": "69.7443, 20.9988",
+        "mapZoom": "9",
+        "mapZoomStart": "12",
+        "mapZoomPage": "12"
     }
 ];
 
