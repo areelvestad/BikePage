@@ -47,6 +47,9 @@
 }
     .path-textbox > .textbox {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         overflow-y: scroll;
     }
     .path-textbox > img {
@@ -95,19 +98,19 @@
         border:1px solid var(--color-bright-1);
     }
         .grade-S0::after {
-            content: ' - Veldig lett ⓘ';
+            content: ' - Veldig lett';
         }
         .grade-S1::after {
-            content: ' - Lett ⓘ';
+            content: ' - Lett';
         }
         .grade-S2::after {
-            content: ' - Middels ⓘ';
+            content: ' - Middels';
         }
         .grade-S3::after {
-            content: ' - Vanskelig ⓘ';
+            content: ' - Vanskelig';
         }
         .grade-S4::after {
-            content: ' - Veldig vanskelig ⓘ';
+            content: ' - Veldig vanskelig';
         }
         .grade-S5::after {
             content: ' - Ekstremt vanskelig';
