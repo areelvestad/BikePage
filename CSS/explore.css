@@ -140,6 +140,7 @@
     border-radius: 50%;
     border: 2px solid rgba(0, 0, 0, 0.425);
     overflow: hidden;
+    display: none;
 }
 .custom-marker > .material-symbols-outlined {
   font-variation-settings:

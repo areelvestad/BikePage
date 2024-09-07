@@ -328,7 +328,7 @@ body {
     text-align: center;
     font-size: 1em;
 }
-.path-grade-item {
+/* .path-grade-item {
     position: relative;
     cursor: pointer;
 }
@@ -371,7 +371,7 @@ body {
         }
         .grade-S5::before {
             content: 'S5: Den øvre enden av skalaen er preget av sterkt hindret terreng, løst underlag med steinsprut, trange skarpe svinger og høye hindringer, som veltede trær – selvfølgelig, inkludert bratte stigninger. Det er liten bremselengde og MTB-teknikken settes på prøve.';
-        }
+        } */
 /* FOOTER */
 .container-footer {
     background-color: var(--color-dark);

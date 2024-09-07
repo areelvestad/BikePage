@@ -141,7 +141,7 @@ function displayPathInfo(path) {
     `;
 
     // Add or update the parking marker
-    if (parkingMarker) {
+    /* if (parkingMarker) {
         exploreMap.removeLayer(parkingMarker);
     }
     if (path.parking) {
@@ -149,7 +149,7 @@ function displayPathInfo(path) {
         if (!isNaN(lat) && !isNaN(lng)) {
             parkingMarker = L.marker([lat, lng], { icon: parkingMarkerIcon }).addTo(exploreMap);
         }
-    }
+    } */
 }
 
 export function filterPaths() {

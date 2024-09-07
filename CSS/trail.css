@@ -49,6 +49,9 @@
         border-radius: 5px;
         overflow: hidden;
     }
+    .image-description p:empty {
+        display: none;
+    }
     .image-description {
         position: absolute;
         display: flex;
@@ -218,19 +221,19 @@
                 z-index: 999;
             }
                 .grade-S0::after {
-                    content: ' - Veldig lett ⓘ';
+                    content: ' - Veldig lett';
                 }
                 .grade-S1::after {
-                    content: ' - Lett ⓘ';
+                    content: ' - Lett';
                 }
                 .grade-S2::after {
-                    content: ' - Middels ⓘ';
+                    content: ' - Middels';
                 }
                 .grade-S3::after {
-                    content: ' - Vanskelig ⓘ';
+                    content: ' - Vanskelig';
                 }
                 .grade-S4::after {
-                    content: ' - Veldig vanskelig ⓘ';
+                    content: ' - Veldig vanskelig';
                 }
                 .grade-S5::after {
                     content: ' - Ekstremt vanskelig';
